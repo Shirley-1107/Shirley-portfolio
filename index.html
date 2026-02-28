@@ -3,14 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>S. Shirley Maria Ann | Cybersecurity Portfolio 💜</title>
+    <title>S. Shirley Maria Ann | Cybersecurity Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #00f5ff;
             --accent: #ff00cc;
-            --dark: #0a001f;
-            --glow: rgba(0, 245, 255, 0.6);
+            --dark1: #0a001f;
+            --dark2: #140028;
+            --glow: rgba(0, 245, 255, 0.55);
+            --glow-accent: rgba(255, 0, 204, 0.55);
         }
 
         * {
@@ -25,140 +27,112 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(-45deg, #0f0024, #1e0042, #2c005e, #0f0024);
-            background-size: 300% 300%;
-            animation: dreamyBG 18s ease infinite;
+            background: linear-gradient(-45deg, var(--dark1), var(--dark2), #1e0038, var(--dark1));
+            background-size: 400% 400%;
+            animation: elegantBG 20s ease infinite;
             color: #f0f0ff;
             min-height: 100vh;
             overflow-x: hidden;
-            position: relative;
         }
 
-        @keyframes dreamyBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
+        @keyframes elegantBG {
+            0%   { background-position: 0% 50%; }
+            50%  { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
 
-        /* Floating particles */
-        .particles {
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            z-index: -1;
-            overflow: hidden;
-        }
-
-        .particle {
-            position: absolute;
-            background: rgba(0, 245, 255, 0.4);
-            border-radius: 50%;
-            animation: floatParticle linear infinite;
-        }
-
-        @keyframes floatParticle {
-            0% { transform: translateY(100vh) scale(0.2); opacity: 0; }
-            20% { opacity: 0.8; }
-            100% { transform: translateY(-20vh) scale(0.8); opacity: 0; }
-        }
-
         nav {
-            background: rgba(10, 0, 30, 0.85);
+            background: rgba(10, 0, 30, 0.92);
             backdrop-filter: blur(20px);
-            padding: 22px 0;
+            padding: 18px 0;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
             border-bottom: 1px solid rgba(0, 245, 255, 0.4);
-            box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+            box-shadow: 0 6px 30px rgba(0,0,0,0.6);
         }
 
         nav a {
             color: var(--primary);
             text-decoration: none;
-            margin: 0 28px;
+            margin: 0 24px;
             font-family: 'Orbitron', sans-serif;
             font-weight: 600;
-            font-size: 1.2rem;
-            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-            text-shadow: 0 0 12px var(--glow);
+            font-size: 1.15rem;
+            transition: all 0.5s ease;
+            text-shadow: 0 0 10px var(--glow);
         }
 
         nav a:hover {
             color: var(--accent);
-            transform: scale(1.2) rotate(8deg);
-            text-shadow: 0 0 30px var(--accent);
+            text-shadow: 0 0 30px var(--glow-accent);
+            transform: translateY(-3px);
         }
 
         header {
             text-align: center;
-            padding: 240px 30px 180px;
+            padding: 180px 30px 120px;
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(10,0,30,0.65)), url('https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&q=80') center/cover no-repeat fixed;
             position: relative;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 30% 20%, rgba(0,245,255,0.25), transparent 75%);
+            pointer-events: none;
         }
 
         header h1 {
             font-family: 'Orbitron', sans-serif;
-            font-size: 6rem;
+            font-size: 5.2rem;
+            margin-bottom: 20px;
             color: var(--primary);
-            text-shadow: 0 0 60px var(--glow);
-            margin-bottom: 30px;
-            overflow: hidden;
-            white-space: nowrap;
+            text-shadow: 0 0 50px var(--glow);
+            animation: pulseGlow 6s ease-in-out infinite;
         }
 
-        .typing {
-            display: inline-block;
-            overflow: hidden;
-            border-right: 0.15em solid var(--accent);
-            white-space: nowrap;
-            animation: typing 4s steps(40, end), blink 0.75s step-end infinite;
-        }
-
-        @keyframes typing {
-            from { width: 0 }
-            to { width: 100% }
-        }
-
-        @keyframes blink {
-            from, to { border-color: transparent }
-            50% { border-color: var(--accent); }
+        @keyframes pulseGlow {
+            0%, 100% { opacity: 1; text-shadow: 0 0 50px var(--glow); }
+            50%      { opacity: 0.95; text-shadow: 0 0 80px var(--glow); }
         }
 
         header p {
-            font-size: 2.2rem;
+            font-size: 1.9rem;
             color: var(--accent);
-            margin-bottom: 80px;
-            text-shadow: 0 0 30px var(--accent);
+            margin-bottom: 60px;
+            text-shadow: 0 0 25px var(--glow-accent);
         }
 
         header img {
-            width: 340px;
-            height: 340px;
+            width: 280px;
+            height: 280px;
             border-radius: 50%;
-            border: 12px solid rgba(0, 245, 255, 0.7);
+            border: 8px solid rgba(0,245,255,0.7);
             object-fit: cover;
-            object-position: center 10%;
-            box-shadow: 0 0 120px rgba(0,245,255,0.9), inset 0 0 50px rgba(0,245,255,0.7);
-            animation: lovableBounce 5s ease-in-out infinite;
+            box-shadow: 0 0 100px rgba(0,245,255,0.9), inset 0 0 40px rgba(0,245,255,0.7);
+            margin-top: 40px;
+            animation: breathe 8s ease-in-out infinite;
         }
 
-        @keyframes lovableBounce {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-30px) rotate(3deg); }
+        @keyframes breathe {
+            0%, 100% { transform: scale(1); }
+            50%      { transform: scale(1.04); }
         }
 
         section {
-            margin: 120px 60px;
-            padding: 100px 60px;
-            background: rgba(20, 10, 50, 0.52);
-            border-radius: 48px;
-            backdrop-filter: blur(32px);
-            border: 1px solid rgba(0, 245, 255, 0.5);
-            box-shadow: 0 40px 120px rgba(0,0,0,0.9);
+            margin: 80px 50px;
+            padding: 70px 50px;
+            background: rgba(20, 10, 50, 0.5);
+            border-radius: 36px;
+            backdrop-filter: blur(28px);
+            border: 1px solid rgba(0, 245, 255, 0.45);
+            box-shadow: 0 30px 100px rgba(0,0,0,0.8);
             opacity: 0;
-            transform: translateY(100px) scale(0.92);
-            transition: all 1.3s cubic-bezier(0.23, 1, 0.32, 1);
+            transform: translateY(60px) scale(0.96);
+            transition: all 1.2s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
         section.visible {
@@ -168,131 +142,121 @@
 
         h2 {
             text-align: center;
-            margin-bottom: 70px;
+            margin-bottom: 60px;
             font-family: 'Orbitron', sans-serif;
-            font-size: 4.2rem;
+            font-size: 3.8rem;
             color: var(--primary);
-            text-shadow: 0 0 45px var(--glow);
-            animation: heartBeat 3s infinite;
-        }
-
-        @keyframes heartBeat {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+            text-shadow: 0 0 40px var(--glow);
         }
 
         .container {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 60px;
+            gap: 50px;
         }
 
         .card {
-            width: 360px;
-            padding: 50px;
-            border-radius: 40px;
-            background: rgba(30, 20, 70, 0.58);
-            border: 2px solid rgba(0, 245, 255, 0.55);
-            transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-            overflow: hidden;
-            backdrop-filter: blur(20px);
+            width: 340px;
+            padding: 40px;
+            border-radius: 32px;
+            background: rgba(30, 20, 70, 0.55);
+            border: 1px solid rgba(0, 245, 255, 0.5);
+            transition: all 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+            backdrop-filter: blur(16px);
         }
 
         .card:hover {
-            transform: translateY(-40px) scale(1.1) rotate(2deg);
-            box-shadow: 0 70px 140px rgba(0, 245, 255, 0.8);
+            transform: translateY(-30px) scale(1.06);
+            box-shadow: 0 50px 110px rgba(0, 245, 255, 0.7);
             border-color: var(--accent);
         }
 
         .card h3 {
             color: var(--primary);
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             font-family: 'Orbitron', sans-serif;
-            font-size: 2.2rem;
+            font-size: 1.9rem;
         }
 
         .card img {
             width: 100%;
-            height: 260px;
-            border-radius: 26px;
+            height: 220px;
+            border-radius: 20px;
             object-fit: cover;
-            border: 3px solid rgba(0, 245, 255, 0.7);
-            box-shadow: 0 0 50px rgba(0, 245, 255, 0.7);
-            transition: all 0.8s ease;
+            border: 2px solid rgba(0, 245, 255, 0.6);
+            box-shadow: 0 0 40px rgba(0, 245, 255, 0.6);
+            transition: all 0.7s ease;
         }
 
         .card:hover img {
-            transform: scale(1.2) rotate(3deg);
+            transform: scale(1.12);
         }
 
         #contact form {
-            max-width: 640px;
-            margin: 0 auto 60px;
+            max-width: 620px;
+            margin: 0 auto 50px;
             display: flex;
             flex-direction: column;
-            gap: 28px;
-            padding: 60px;
-            background: rgba(30,20,70,0.58);
-            border-radius: 40px;
-            border: 2px solid rgba(0,245,255,0.55);
-            backdrop-filter: blur(22px);
+            gap: 24px;
+            padding: 50px;
+            background: rgba(30,20,70,0.55);
+            border-radius: 36px;
+            border: 1px solid rgba(0,245,255,0.5);
+            backdrop-filter: blur(20px);
         }
 
         #contact input, #contact textarea {
-            padding: 20px 24px;
-            border-radius: 16px;
+            padding: 18px 22px;
+            border-radius: 14px;
             border: 2px solid var(--primary);
-            background: rgba(30,20,70,0.8);
+            background: rgba(30,20,70,0.75);
             color: white;
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             transition: all 0.4s;
         }
 
         #contact input:focus, #contact textarea:focus {
             border-color: var(--accent);
-            box-shadow: 0 0 40px rgba(255,0,204,0.7);
+            box-shadow: 0 0 35px rgba(255,0,204,0.6);
         }
 
         #contact button {
-            padding: 22px;
+            padding: 20px;
             background: linear-gradient(135deg, var(--accent), var(--primary));
             color: white;
             border: none;
-            border-radius: 16px;
+            border-radius: 14px;
             cursor: pointer;
             font-weight: 700;
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             transition: all 0.5s;
         }
 
         #contact button:hover {
-            transform: scale(1.1) rotate(2deg);
-            box-shadow: 0 0 70px var(--accent);
+            transform: scale(1.07);
+            box-shadow: 0 0 60px rgba(255,0,204,0.8);
         }
 
         footer {
             text-align: center;
-            padding: 70px 20px;
-            background: rgba(0,0,0,0.98);
-            border-top: 1px solid rgba(0, 245, 255, 0.6);
-            margin-top: 140px;
+            padding: 60px 20px;
+            background: rgba(0,0,0,0.97);
+            border-top: 1px solid rgba(0, 245, 255, 0.5);
+            margin-top: 120px;
             color: #c0c0ff;
         }
 
         @media (max-width: 768px) {
-            header { padding: 180px 20px 140px; }
-            header h1 { font-size: 4.2rem; }
-            nav a { margin: 0 16px; font-size: 1.05rem; }
-            section { margin: 80px 30px; padding: 70px 40px; }
-            .card { width: 100%; max-width: 400px; }
+            header { padding: 160px 20px 120px; }
+            header h1 { font-size: 4rem; }
+            nav a { margin: 0 14px; font-size: 1rem; }
+            section { margin: 70px 30px; padding: 70px 40px; }
+            .card { width: 100%; max-width: 380px; }
         }
     </style>
 </head>
 <body>
-
-<!-- Floating particles -->
-<div class="particles" id="particles"></div>
 
 <nav>
     <a href="#home">Home</a>
@@ -303,17 +267,18 @@
 </nav>
 
 <header id="home">
-    <h1><span class="typing">Hii, I'm S. Shirley Maria Ann.</span></h1>
+    <h1>Hii, I'm S. Shirley Maria Ann.</h1>
     <img src="https://raw.githubusercontent.com/Shirley-1107/Shirley-portfolio/main/shirley-new.jpg"
          alt="S. Shirley Maria Ann"
-         style="width: 340px; height: 340px; border-radius: 50%; border: 12px solid rgba(0, 245, 255, 0.8);
+         style="width: 280px; height: 280px; border-radius: 50%; border: 10px solid rgba(0,245,255,0.7);
                 object-fit: cover; object-position: center 10%;
-                box-shadow: 0 0 120px rgba(0,245,255,1), inset 0 0 50px rgba(0,245,255,0.8);">
+                box-shadow: 0 0 100px rgba(0,245,255,0.9), inset 0 0 40px rgba(0,245,255,0.7);
+                margin-top: 50px;">
 </header>
 
 <section id="about">
     <h2>About Me</h2>
-    <p style="text-align:center; max-width:1000px; margin:auto; font-size:1.4rem; line-height:1.9;">
+    <p style="text-align:center; max-width:1000px; margin:auto; font-size:1.35rem; line-height:1.9;">
         Passionate about programming, web development, and especially cybersecurity.  
         I thrive on learning cutting-edge technologies and building practical projects that secure the digital world.
     </p>
@@ -342,7 +307,7 @@
 </section>
 
 <section id="hobbies">
-    <h2 style="animation: heartBeat 2.5s infinite;">My Hobbies & Interests 💕</h2>
+    <h2>My Hobbies & Interests</h2>
     <div class="container">
         <div class="card">
             <h3>Drawing</h3>
@@ -368,26 +333,26 @@
 </section>
 
 <section id="contact">
-    <h2>Contact Me 💌</h2>
+    <h2>Contact Me</h2>
     
-    <form id="contactForm" action="https://script.google.com/macros/s/AKfycbx4uaGAHedRgh2_3vntmLaEAOq2tlxIka_6tU6NbHfHBvPxH6vYmYXjCQ7FT6MrKggU7Q/exec" method="POST" style="max-width: 640px; margin: 0 auto 60px; display: flex; flex-direction: column; gap: 28px; padding: 60px; background: rgba(30,20,70,0.58); border-radius: 40px; border: 2px solid rgba(0,245,255,0.55); backdrop-filter: blur(22px);">
+    <form id="contactForm" action="https://script.google.com/macros/s/AKfycbx4uaGAHedRgh2_3vntmLaEAOq2tlxIka_6tU6NbHfHBvPxH6vYmYXjCQ7FT6MrKggU7Q/exec" method="POST" style="max-width: 620px; margin: 0 auto 50px; display: flex; flex-direction: column; gap: 24px; padding: 50px; background: rgba(30,20,70,0.55); border-radius: 36px; border: 1px solid rgba(0,245,255,0.5); backdrop-filter: blur(20px);">
         <input type="text" name="name" placeholder="Your Full Name" required>
         <input type="email" name="email" placeholder="Your Email Address" required>
         <textarea name="message" placeholder="Your Message / Query" rows="6" required></textarea>
-        <button type="submit">Send Message ✨</button>
+        <button type="submit">Send Message</button>
     </form>
 
-    <p id="formStatus" style="text-align:center; margin: 30px 0; font-size:1.4rem;"></p>
+    <p id="formStatus" style="text-align:center; margin: 25px 0; font-size:1.35rem;"></p>
 
-    <div style="text-align:center; font-size:1.4rem; margin-top: 60px; line-height: 2;">
+    <div style="text-align:center; font-size:1.35rem; margin-top: 50px; line-height: 2;">
         <strong>Alternative Contact:</strong><br><br>
-        📧 <strong>Email:</strong> 25bcyc53@kristujayanti.com<br>
-        📱 <strong>Phone:</strong> 8618477831
+        📧 Email: 25bcyc53@kristujayanti.com<br>
+        📱 Phone: 8618477831
     </div>
 </section>
 
 <footer>
-    © 2026 S. Shirley Maria Ann | Made with 💜 & lots of dreams
+    © 2026 S. Shirley Maria Ann | Securing Tomorrow's Digital World
 </footer>
 
 <script>
@@ -396,7 +361,7 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
     e.preventDefault();
     const form = e.target;
     const status = document.getElementById('formStatus');
-    status.textContent = 'Sending... 💌';
+    status.textContent = 'Sending...';
     status.style.color = '#ffaa00';
 
     fetch(form.action, {
@@ -406,7 +371,7 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
     .then(response => response.json())
     .then(data => {
         if (data.result === 'success') {
-            status.textContent = 'Thank you! Message sent successfully 💕';
+            status.textContent = 'Thank you! Message sent successfully.';
             status.style.color = '#00ff88';
             form.reset();
         } else {
@@ -420,7 +385,7 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
     });
 });
 
-// Scroll animation
+// Scroll reveal animation
 const sections = document.querySelectorAll('section');
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -428,31 +393,9 @@ const observer = new IntersectionObserver((entries) => {
             entry.target.classList.add('visible');
         }
     });
-}, { threshold: 0.15 });
+}, { threshold: 0.18 });
 
 sections.forEach(section => observer.observe(section));
-
-// Floating particles
-function createParticles() {
-    const particlesContainer = document.getElementById('particles') || document.createElement('div');
-    particlesContainer.id = 'particles';
-    particlesContainer.className = 'particles';
-    document.body.appendChild(particlesContainer);
-
-    for (let i = 0; i < 30; i++) {
-        const particle = document.createElement('div');
-        particle.className = 'particle';
-        const size = Math.random() * 4 + 2;
-        particle.style.width = size + 'px';
-        particle.style.height = size + 'px';
-        particle.style.left = Math.random() * 100 + 'vw';
-        particle.style.animationDuration = Math.random() * 20 + 15 + 's';
-        particle.style.animationDelay = Math.random() * 5 + 's';
-        particlesContainer.appendChild(particle);
-    }
-}
-
-createParticles();
 </script>
 </body>
 </html>
