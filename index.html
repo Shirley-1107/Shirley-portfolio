@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>S. Shirley Maria Ann | Cybersecurity Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
         * {
@@ -32,97 +31,72 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* Fixed Sidebar */
-        .sidebar {
+        /* Fixed Left Panel with Profile Photo */
+        .left-panel {
             position: fixed;
             left: 0;
             top: 0;
             bottom: 0;
-            width: 80px;
-            background: rgba(10, 0, 30, 0.9);
+            width: 280px;
+            background: rgba(10, 0, 30, 0.85);
             backdrop-filter: blur(16px);
-            border-right: 1px solid rgba(0, 245, 255, 0.3);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding-top: 40px;
+            border-right: 1px solid rgba(0, 245, 255, 0.4);
+            padding: 40px 20px;
             z-index: 1000;
-            transition: all 0.3s;
+            overflow-y: auto;
+            text-align: center;
         }
 
-        .sidebar a {
-            color: #00f5ff;
+        .profile-photo {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 6px solid #00ffff;
+            object-fit: cover;
+            object-position: center 15%;
+            box-shadow: 0 0 60px rgba(0,255,255,0.8), inset 0 0 25px rgba(0,255,255,0.5);
+            margin-bottom: 20px;
+        }
+
+        .profile-name {
+            font-family: 'Orbitron', sans-serif;
             font-size: 1.8rem;
-            margin: 30px 0;
-            text-decoration: none;
-            transition: all 0.4s ease;
+            color: #00ffff;
+            text-shadow: 0 0 20px #00ffff;
+            margin-bottom: 8px;
+        }
+
+        .profile-title {
+            font-size: 1.1rem;
+            color: #ff00cc;
+            margin-bottom: 40px;
+        }
+
+        /* Sidebar Icons (below profile) */
+        .sidebar-icons {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 6px;
+            gap: 35px;
         }
 
-        .sidebar a:hover {
+        .sidebar-icons a {
+            color: #00f5ff;
+            font-size: 2rem;
+            transition: all 0.4s ease;
+            text-decoration: none;
+        }
+
+        .sidebar-icons a:hover {
             color: #ff00cc;
             transform: scale(1.3);
-            text-shadow: 0 0 20px #ff00cc;
+            text-shadow: 0 0 25px #ff00cc;
         }
 
-        .sidebar a i {
-            font-size: 2rem;
-        }
-
-        .sidebar a span {
-            font-size: 0.8rem;
-            font-family: 'Orbitron', sans-serif;
-            opacity: 0.8;
-        }
-
-        /* Main content with sidebar offset */
+        /* Main Content */
         main {
-            margin-left: 80px;
-            padding: 40px 60px;
-            min-height: 100vh;
-        }
-
-        header {
-            text-align: center;
-            padding: 180px 20px 120px;
-            background: linear-gradient(rgba(0,0,0,0.75), rgba(10,0,30,0.55)), url('https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&q=80') center/cover no-repeat fixed;
-            position: relative;
-            border-radius: 0 0 40px 40px;
-        }
-
-        header::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at 30% 20%, rgba(0,245,255,0.22), transparent 70%);
-        }
-
-        header h1 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 5.5rem;
-            margin-bottom: 20px;
-            color: #00ffff;
-            text-shadow: 0 0 50px #00ffff;
-        }
-
-        header p {
-            font-size: 1.9rem;
-            color: #ff00cc;
-            margin-bottom: 60px;
-        }
-
-        header img {
-            width: 280px;
-            height: 280px;
-            border-radius: 50%;
-            border: 8px solid #00ffff;
-            object-fit: cover;
-            object-position: center 10%;
-            box-shadow: 0 0 80px rgba(0,255,255,0.9);
-            margin-top: 40px;
+            margin-left: 280px;
+            padding: 40px 60px 100px;
         }
 
         section {
@@ -147,7 +121,7 @@
             text-align: center;
             margin-bottom: 60px;
             font-family: 'Orbitron', sans-serif;
-            font-size: 3.8rem;
+            font-size: 3.5rem;
             color: #00ffff;
             text-shadow: 0 0 35px #00ffff;
         }
@@ -185,59 +159,67 @@
             color: #b0b0ff;
         }
 
-        /* Mobile - Sidebar becomes bottom bar */
+        /* Mobile - Sidebar becomes top bar */
         @media (max-width: 768px) {
-            .sidebar {
-                top: auto;
-                bottom: 0;
+            .left-panel {
+                position: fixed;
+                top: 0;
                 left: 0;
                 right: 0;
-                height: 70px;
-                width: auto;
+                bottom: auto;
+                width: 100%;
+                height: 100px;
+                padding: 15px 0;
                 flex-direction: row;
                 justify-content: space-around;
-                padding: 10px 0;
+                align-items: center;
                 border-right: none;
-                border-top: 1px solid rgba(0, 245, 255, 0.3);
+                border-bottom: 1px solid rgba(0, 245, 255, 0.3);
             }
 
-            .sidebar a {
+            .profile-photo {
+                width: 80px;
+                height: 80px;
                 margin: 0;
-                font-size: 1.6rem;
+            }
+
+            .profile-name, .profile-title {
+                display: none;
+            }
+
+            .sidebar-icons {
+                flex-direction: row;
+                gap: 20px;
             }
 
             main {
                 margin-left: 0;
-                margin-bottom: 80px;
-                padding: 40px 25px;
+                margin-top: 120px;
+                padding: 30px 20px;
             }
-
-            header { padding: 140px 20px 100px; }
-            header h1 { font-size: 4rem; }
         }
     </style>
 </head>
 <body>
 
-<!-- Fixed Sidebar with Icons -->
-<div class="sidebar">
-    <a href="#home" title="Home"><i class="fas fa-home"></i><span>Home</span></a>
-    <a href="#about" title="About"><i class="fas fa-user"></i><span>About</span></a>
-    <a href="#skills" title="Skills"><i class="fas fa-code"></i><span>Skills</span></a>
-    <a href="#hobbies" title="Hobbies"><i class="fas fa-heart"></i><span>Hobbies</span></a>
-    <a href="#contact" title="Contact"><i class="fas fa-envelope"></i><span>Contact</span></a>
+<!-- Fixed Left Panel with Profile Photo & Icons -->
+<div class="left-panel">
+    <img src="https://raw.githubusercontent.com/Shirley-1107/Shirley-portfolio/main/shirley-new.jpg"
+         alt="S. Shirley Maria Ann"
+         class="profile-photo">
+    <div class="profile-name">Hii, I'm S. Shirley Maria Ann.</div>
+    <div class="profile-title">Aspiring BCA Graduate in Cybersecurity</div>
+
+    <div class="sidebar-icons">
+        <a href="#home" title="Home"><i class="fas fa-home"></i></a>
+        <a href="#about" title="About"><i class="fas fa-user"></i></a>
+        <a href="#skills" title="Skills"><i class="fas fa-code"></i></a>
+        <a href="#hobbies" title="Hobbies"><i class="fas fa-heart"></i></a>
+        <a href="#contact" title="Contact"><i class="fas fa-envelope"></i></a>
+    </div>
 </div>
 
 <main>
-    <header id="home">
-        <h1>Hii, I'm S. Shirley Maria Ann.</h1>
-        <img src="https://raw.githubusercontent.com/Shirley-1107/Shirley-portfolio/main/shirley-new.jpg"
-             alt="S. Shirley Maria Ann"
-             style="width: 280px; height: 280px; border-radius: 50%; border: 8px solid #00ffff;
-                    object-fit: cover; object-position: center 10%;
-                    box-shadow: 0 0 80px rgba(0,255,255,0.9); margin-top: 40px;">
-    </header>
-
     <section id="about">
         <h2>About Me</h2>
         <p style="text-align:center; max-width:900px; margin:auto; font-size:1.3rem; line-height:1.8;">
