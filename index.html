@@ -171,15 +171,15 @@
 </nav>
 
 <header id="home">
-    <h1>Hii, I'm S. Shirley Maria Ann.</h1>
-<img src="https://raw.githubusercontent.com/Shirley-1107/Shirley-portfolio/main/shirley-new.jpg"
-     alt="S. Shirley Maria Ann"
-     style="width: 220px; height: 220px; border-radius: 50%; border: 5px solid #00f5ff; 
-            object-fit: contain; object-position: center top; 
-            box-shadow: 0 0 40px #00f5ff, inset 0 0 15px #00f5ff; margin-top: 20px; 
-            background: #0a001f;">
+    <h1>S. Shirley Maria Ann</h1>
+    <p>Aspiring BCA Graduate in Cybersecurity</p>
+   <img src="https://raw.githubusercontent.com/Shirley-1107/Shirley-portfolio/main/shirley.jpg" alt="S. Shirley Maria Ann" style="width: 180px; height: 180px; border-radius: 50%; border: 5px solid #00f5ff; object-fit: cover; object-position: center top; box-shadow: 0 0 40px #00f5ff, inset 0 0 15px #00f5ff; margin-top: 20px;">
+</header>
+
+<section id="about">
+    <h2>About Me</h2>
     <p style="text-align:center; max-width:900px; margin:auto; font-size:1.2rem; line-height:1.7;">
-        Passionate about programming, web development, and especially cybersecurity. I thrive on learning cutting-edge technologies and building practical projects that secure the digital world.
+        Hi, I am S. Shirley Maria Ann.
     </p>
 </section>
 
@@ -196,7 +196,8 @@
         </div>
         <div class="card">
             <h3>Java</h3>
-            <img src="https://images.unsplash.com/photo-1526379095098-d400fd0bf935?auto=format&fit=crop&q=80" alt="Java Programming">
+            <!-- NEW IMAGE FOR JAVA: Clean Java logo + code background -->
+            <img src="https://images.unsplash.com/photo-1623479322729-28b25c16b011?auto=format&fit=crop&q=80&w=800" alt="Java Programming">
         </div>
         <div class="card">
             <h3>Python</h3>
@@ -235,51 +236,4 @@
     <h2>Contact Me</h2>
     <form id="contactForm" action="https://script.google.com/macros/s/AKfycbx4uaGAHedRgh2_3vntmLaEAOq2tlxIka_6tU6NbHfHBvPxH6vYmYXjCQ7FT6MrKggU7Q/exec" method="POST" style="max-width: 500px; margin: auto; display: flex; flex-direction: column; gap: 15px; padding: 20px;">
         <input type="text" name="name" placeholder="Your Full Name" required style="padding: 12px; border-radius: 8px; border: 1px solid #00f5ff; background: rgba(30,20,70,0.5); color: white; font-size: 1rem;">
-        <input type="email" name="email" placeholder="Your Email Address" required style="padding: 12px; border-radius: 8px; border: 1px solid #00f5ff; background: rgba(30,20,70,0.5); color: white; font-size: 1rem;">
-        <textarea name="message" placeholder="Your Message / Query" rows="6" required style="padding: 12px; border-radius: 8px; border: 1px solid #00f5ff; background: rgba(30,20,70,0.5); color: white; font-size: 1rem;"></textarea>
-        <button type="submit" style="padding: 14px; background: linear-gradient(135deg, #ff00aa, #00f5ff); color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 1.1rem; transition: all 0.3s;">Send Message</button>
-    </form>
-    <p id="formStatus" style="text-align:center; margin-top:20px; font-size:1.2rem; color:#00f5ff;"></p>
-
-    <p style="text-align:center; margin-top:40px; font-size:1.2rem;">
-        <strong>Alternative:</strong><br>
-        📧 Email: 25bcyc53@kristujayanti.com<br>
-        📱 Phone: 8618477831
-    </p>
-</section>
-
-<footer>
-    © 2026 S. Shirley Maria Ann | Securing Tomorrow's Digital World
-</footer>
-
-<script>
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const form = e.target;
-        const status = document.getElementById('formStatus');
-        status.textContent = 'Sending...';
-        status.style.color = '#ffaa00';
-
-        fetch(form.action, {
-            method: 'POST',
-            body: new FormData(form)
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.result === 'success') {
-                status.textContent = 'Thank you! Message sent successfully.';
-                status.style.color = '#00ff88';
-                form.reset();
-            } else {
-                status.textContent = 'Error: ' + (data.error || 'Please try again.');
-                status.style.color = '#ff5555';
-            }
-        })
-        .catch(() => {
-            status.textContent = 'Network error. Check your connection.';
-            status.style.color = '#ff5555';
-        });
-    });
-</script>
-</body>
-</html>
+        <input type="email" name="email" placeholder="Your Email Address" required style="padding: 12px; border-radius:
