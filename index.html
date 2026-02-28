@@ -309,4 +309,80 @@
         </div>
         <div class="card">
             <h3>Karate / Martial Arts</h3>
-            <img src="https://thumbs.dreamstime.com/b/karate-professional-female-against-beautiful-black-background-flash-light-behind-her-isolated-440610073.jpg" alt="Female
+            <img src="https://thumbs.dreamstime.com/b/karate-professional-female-against-beautiful-black-background-flash-light-behind-her-isolated-440610073.jpg" alt="Female karate martial artist performing dynamic kick">
+        </div>
+        <div class="card">
+            <h3>Cooking</h3>
+            <img src="https://images.unsplash.com/photo-1495521821757-a1efb6729352?auto=format&fit=crop&q=80" alt="Creative cooking">
+        </div>
+        <div class="card">
+            <h3>Singing</h3>
+            <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&q=80" alt="Singing passion">
+        </div>
+        <div class="card">
+            <h3>Sports</h3>
+            <img src="https://st5.depositphotos.com/62628780/62051/i/1600/depositphotos_620512974-stock-photo-athlete-running-sports-track-woman.jpg" alt="Dynamic female athlete sprinting on track">
+        </div>
+    </div>
+</section>
+
+<section id="contact">
+    <h2>Contact Me</h2>
+    <form id="contactForm" action="https://script.google.com/macros/s/AKfycbx4uaGAHedRgh2_3vntmLaEAOq2tlxIka_6tU6NbHfHBvPxH6vYmYXjCQ7FT6MrKggU7Q/exec" method="POST">
+        <input type="text" name="name" placeholder="Your Full Name" required>
+        <input type="email" name="email" placeholder="Your Email Address" required>
+        <textarea name="message" placeholder="Your Message / Query" rows="6" required></textarea>
+        <button type="submit">Send Message</button>
+    </form>
+    <p id="formStatus"></p>
+    <p><strong>Alternative:</strong><br>📧 Email: 25bcyc53@kristujayanti.com<br>📱 Phone: 8618477831</p>
+</section>
+
+<footer>
+    © 2026 S. Shirley Maria Ann | Securing Tomorrow's Digital World
+</footer>
+
+<script>
+    // Form submission
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const form = e.target;
+        const status = document.getElementById('formStatus');
+        status.textContent = 'Sending...';
+        status.style.color = '#ffaa00';
+
+        fetch(form.action, {
+            method: 'POST',
+            body: new FormData(form)
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.result === 'success') {
+                status.textContent = 'Thank you! Message sent successfully.';
+                status.style.color = '#00ff88';
+                form.reset();
+            } else {
+                status.textContent = 'Error: ' + (data.error || 'Please try again.');
+                status.style.color = '#ff5555';
+            }
+        })
+        .catch(() => {
+            status.textContent = 'Network error. Check your connection.';
+            status.style.color = '#ff5555';
+        });
+    });
+
+    // Scroll animation for sections
+    const sections = document.querySelectorAll('section');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.15 });
+
+    sections.forEach(section => observer.observe(section));
+</script>
+</body>
+</html>
