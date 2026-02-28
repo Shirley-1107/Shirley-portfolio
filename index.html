@@ -19,41 +19,7 @@
             background: linear-gradient(135deg, #0a001f, #1a0033, #000814);
             color: #e0e0ff;
             min-height: 100vh;
-            padding-left: 120px; /* Space for fixed photo on left */
         }
-
-        /* Fixed profile photo in top-left corner */
-        .fixed-profile {
-            position: fixed;
-            top: 40px;
-            left: 40px;
-            z-index: 1000;
-            text-align: center;
-        }
-
-        .fixed-profile img {
-            width: 160px;
-            height: 160px;
-            border-radius: 50%;
-            border: 5px solid #00f5ff;
-            object-fit: cover;
-            box-shadow: 0 0 40px #00f5ff, inset 0 0 15px #00f5ff;
-        }
-
-        .fixed-profile h1 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.6rem;
-            color: #00f5ff;
-            text-shadow: 0 0 15px #00f5ff;
-            margin: 10px 0 5px;
-        }
-
-        .fixed-profile p {
-            font-size: 0.95rem;
-            color: #ff00aa;
-            text-shadow: 0 0 8px #ff00aa;
-        }
-
         nav {
             background: rgba(10, 0, 30, 0.6);
             backdrop-filter: blur(12px);
@@ -62,10 +28,9 @@
             position: fixed;
             width: 100%;
             top: 0;
-            z-index: 999;
+            z-index: 1000;
             border-bottom: 1px solid rgba(0, 245, 255, 0.15);
         }
-
         nav a {
             color: #00f5ff;
             text-decoration: none;
@@ -76,20 +41,17 @@
             transition: all 0.4s;
             text-shadow: 0 0 8px rgba(0, 245, 255, 0.5);
         }
-
         nav a:hover {
             color: #ff00aa;
             text-shadow: 0 0 15px #ff00aa, 0 0 25px #ff00aa;
             transform: scale(1.08);
         }
-
         header {
             text-align: center;
             padding: 140px 20px 100px;
             background: linear-gradient(rgba(0,0,0,0.6), rgba(10,0,30,0.4)), url('https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&q=80') center/cover no-repeat;
             position: relative;
         }
-
         header::before {
             content: '';
             position: absolute;
@@ -97,7 +59,28 @@
             background: radial-gradient(circle at 30% 20%, rgba(0,245,255,0.12), transparent 60%);
             pointer-events: none;
         }
-
+        header h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3.8rem;
+            margin-bottom: 12px;
+            color: #00f5ff;
+            text-shadow: 0 0 20px #00f5ff, 0 0 40px #00f5ff;
+        }
+        header p {
+            font-size: 1.4rem;
+            color: #ff00aa;
+            margin-bottom: 40px;
+            text-shadow: 0 0 10px #ff00aa;
+        }
+        header img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 5px solid #00f5ff;
+            object-fit: cover;
+            box-shadow: 0 0 40px #00f5ff, inset 0 0 15px #00f5ff;
+            margin-top: 20px;
+        }
         section {
             margin: 60px 30px;
             padding: 60px 30px;
@@ -107,7 +90,6 @@
             border: 1px solid rgba(0, 245, 255, 0.18);
             box-shadow: 0 15px 40px rgba(0,0,0,0.6);
         }
-
         h2 {
             text-align: center;
             margin-bottom: 45px;
@@ -116,14 +98,12 @@
             color: #00f5ff;
             text-shadow: 0 0 15px #00f5ff;
         }
-
         .container {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 35px;
         }
-
         .card {
             width: 280px;
             text-align: center;
@@ -134,20 +114,17 @@
             transition: all 0.5s ease;
             overflow: hidden;
         }
-
         .card:hover {
             transform: translateY(-15px) scale(1.05);
             box-shadow: 0 20px 50px rgba(0, 245, 255, 0.4);
             border-color: #ff00aa;
         }
-
         .card h3 {
             color: #00f5ff;
             margin-bottom: 15px;
             font-family: 'Orbitron', sans-serif;
             font-size: 1.4rem;
         }
-
         .card img {
             width: 100%;
             height: 180px;
@@ -157,22 +134,18 @@
             box-shadow: 0 0 20px rgba(0, 245, 255, 0.3);
             transition: all 0.4s;
         }
-
         .card:hover img {
             transform: scale(1.08);
         }
-
         #contact p {
             text-align: center;
             font-size: 1.3rem;
             margin: 15px 0;
             color: #e0e0ff;
         }
-
         #contact p strong {
             color: #00f5ff;
         }
-
         footer {
             text-align: center;
             padding: 30px;
@@ -181,46 +154,14 @@
             margin-top: 60px;
             color: #a0a0ff;
         }
-
         @media (max-width: 768px) {
-            .fixed-profile {
-                position: static;
-                width: 100%;
-                padding: 20px;
-                background: rgba(10, 0, 30, 0.8);
-                margin-bottom: 20px;
-            }
-
-            body {
-                padding-left: 0;
-            }
-
-            header {
-                padding: 120px 15px 80px;
-            }
-
-            nav a {
-                margin: 0 12px;
-                font-size: 1rem;
-            }
-
-            section {
-                margin: 40px 15px;
-                padding: 40px 20px;
-            }
+            header { padding: 120px 15px 80px; }
+            nav a { margin: 0 12px; font-size: 1rem; }
+            section { margin: 40px 15px; padding: 40px 20px; }
         }
     </style>
 </head>
 <body>
-
-<!-- Fixed Profile Photo in Top-Left Corner -->
-<div class="fixed-profile">
-    <img src="https://raw.githubusercontent.com/Shirley-1107/Shirley-portfolio/main/shirley-new.jpg"
-         alt="S. Shirley Maria Ann">
-    <h1>Hii, I'm S. Shirley Maria Ann.</h1>
-    <p>Aspiring BCA Graduate in Cybersecurity</p>
-</div>
-
 <nav>
     <a href="#home">Home</a>
     <a href="#about">About</a>
@@ -229,84 +170,91 @@
     <a href="#contact">Contact</a>
 </nav>
 
-<main>
-    <section id="about">
-        <h2>About Me</h2>
-        <p style="text-align:center; max-width:900px; margin:auto; font-size:1.2rem; line-height:1.7;">
-            Passionate about programming, web development, and especially <strong>cybersecurity</strong>.
-            I thrive on learning cutting-edge technologies and building practical projects that secure the digital world.
-        </p>
-    </section>
+<header id="home">
+    <h1>S. Shirley Maria Ann</h1>
+    <p>Aspiring BCA Graduate in Cybersecurity</p>
+    <img src="https://raw.githubusercontent.com/Shirley-1107/Shirley-portfolio/main/shirley-new.jpg"
+         alt="S. Shirley Maria Ann"
+         style="width: 180px; height: 180px; border-radius: 50%; border: 5px solid #00f5ff;
+                object-fit: cover; box-shadow: 0 0 40px #00f5ff, inset 0 0 15px #00f5ff; margin-top: 20px;">
+</header>
 
-    <section id="skills">
-        <h2>Skills</h2>
-        <div class="container">
-            <div class="card">
-                <h3>HTML</h3>
-                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=800" alt="HTML & Web Development">
-            </div>
-            <div class="card">
-                <h3>C Programming</h3>
-                <img src="https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?auto=format&fit=crop&q=80" alt="C Programming Code">
-            </div>
-            <div class="card">
-                <h3>Java</h3>
-                <img src="https://images.unsplash.com/photo-1623479322729-28b25c16b011?auto=format&fit=crop&q=80&w=800" alt="Java Programming">
-            </div>
-            <div class="card">
-                <h3>Python</h3>
-                <img src="https://images.unsplash.com/photo-1526379095098-d400fd0bf935?auto=format&fit=crop&q=80" alt="Python Programming">
-            </div>
+<section id="about">
+    <h2>About Me</h2>
+    <p style="text-align:center; max-width:900px; margin:auto; font-size:1.2rem; line-height:1.7;">
+        Passionate about programming, web development, and especially <strong>cybersecurity</strong>.
+        I thrive on learning cutting-edge technologies and building practical projects that secure the digital world.
+    </p>
+</section>
+
+<section id="skills">
+    <h2>Skills</h2>
+    <div class="container">
+        <div class="card">
+            <h3>HTML</h3>
+            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=800" alt="HTML & Web Development">
         </div>
-    </section>
-
-    <section id="hobbies">
-        <h2>My Hobbies & Interests</h2>
-        <div class="container">
-            <div class="card">
-                <h3>Drawing</h3>
-                <img src="https://fullbloomclub.net/wp-content/uploads/2024/03/realisitc-drawing.jpg" alt="Detailed realistic pencil drawing artwork">
-            </div>
-            <div class="card">
-                <h3>Karate / Martial Arts</h3>
-                <img src="https://thumbs.dreamstime.com/b/karate-professional-female-against-beautiful-black-background-flash-light-behind-her-isolated-440610073.jpg" alt="Female karate martial artist performing dynamic kick">
-            </div>
-            <div class="card">
-                <h3>Cooking</h3>
-                <img src="https://images.unsplash.com/photo-1495521821757-a1efb6729352?auto=format&fit=crop&q=80" alt="Creative cooking">
-            </div>
-            <div class="card">
-                <h3>Singing</h3>
-                <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&q=80" alt="Singing passion">
-            </div>
-            <div class="card">
-                <h3>Sports</h3>
-                <img src="https://st5.depositphotos.com/62628780/62051/i/1600/depositphotos_620512974-stock-photo-athlete-running-sports-track-woman.jpg" alt="Dynamic female athlete sprinting on track">
-            </div>
+        <div class="card">
+            <h3>C Programming</h3>
+            <img src="https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?auto=format&fit=crop&q=80" alt="C Programming Code">
         </div>
-    </section>
+        <div class="card">
+            <h3>Java</h3>
+            <img src="https://images.unsplash.com/photo-1623479322729-28b25c16b011?auto=format&fit=crop&q=80&w=800" alt="Java Programming">
+        </div>
+        <div class="card">
+            <h3>Python</h3>
+            <img src="https://images.unsplash.com/photo-1526379095098-d400fd0bf935?auto=format&fit=crop&q=80" alt="Python Programming">
+        </div>
+    </div>
+</section>
 
-    <section id="contact">
-        <h2>Contact Me</h2>
-        <form id="contactForm" action="https://script.google.com/macros/s/AKfycbx4uaGAHedRgh2_3vntmLaEAOq2tlxIka_6tU6NbHfHBvPxH6vYmYXjCQ7FT6MrKggU7Q/exec" method="POST" style="max-width: 500px; margin: auto; display: flex; flex-direction: column; gap: 15px; padding: 20px;">
-            <input type="text" name="name" placeholder="Your Full Name" required style="padding: 12px; border-radius: 8px; border: 1px solid #00f5ff; background: rgba(30,20,70,0.5); color: white; font-size: 1rem;">
-            <input type="email" name="email" placeholder="Your Email Address" required style="padding: 12px; border-radius: 8px; border: 1px solid #00f5ff; background: rgba(30,20,70,0.5); color: white; font-size: 1rem;">
-            <textarea name="message" placeholder="Your Message / Query" rows="6" required style="padding: 12px; border-radius: 8px; border: 1px solid #00f5ff; background: rgba(30,20,70,0.5); color: white; font-size: 1rem;"></textarea>
-            <button type="submit" style="padding: 14px; background: linear-gradient(135deg, #ff00aa, #00f5ff); color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 1.1rem; transition: all 0.3s;">Send Message</button>
-        </form>
-        <p id="formStatus" style="text-align:center; margin-top:20px; font-size:1.2rem; color:#00f5ff;"></p>
+<section id="hobbies">
+    <h2>My Hobbies & Interests</h2>
+    <div class="container">
+        <div class="card">
+            <h3>Drawing</h3>
+            <img src="https://fullbloomclub.net/wp-content/uploads/2024/03/realisitc-drawing.jpg" alt="Detailed realistic pencil drawing artwork">
+        </div>
+        <div class="card">
+            <h3>Karate / Martial Arts</h3>
+            <img src="https://thumbs.dreamstime.com/b/karate-professional-female-against-beautiful-black-background-flash-light-behind-her-isolated-440610073.jpg" alt="Female karate martial artist performing dynamic kick">
+        </div>
+        <div class="card">
+            <h3>Cooking</h3>
+            <img src="https://images.unsplash.com/photo-1495521821757-a1efb6729352?auto=format&fit=crop&q=80" alt="Creative cooking">
+        </div>
+        <div class="card">
+            <h3>Singing</h3>
+            <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&q=80" alt="Singing passion">
+        </div>
+        <div class="card">
+            <h3>Sports</h3>
+            <img src="https://st5.depositphotos.com/62628780/62051/i/1600/depositphotos_620512974-stock-photo-athlete-running-sports-track-woman.jpg" alt="Dynamic female athlete sprinting on track">
+        </div>
+    </div>
+</section>
 
-        <p style="text-align:center; margin-top:40px; font-size:1.2rem;">
-            <strong>Alternative:</strong><br>
-            📧 Email: 25bcyc53@kristujayanti.com<br>
-            📱 Phone: 8618477831
-        </p>
-    </section>
+<section id="contact">
+    <h2>Contact Me</h2>
+    <form id="contactForm" action="https://script.google.com/macros/s/AKfycbx4uaGAHedRgh2_3vntmLaEAOq2tlxIka_6tU6NbHfHBvPxH6vYmYXjCQ7FT6MrKggU7Q/exec" method="POST" style="max-width: 500px; margin: auto; display: flex; flex-direction: column; gap: 15px; padding: 20px;">
+        <input type="text" name="name" placeholder="Your Full Name" required style="padding: 12px; border-radius: 8px; border: 1px solid #00f5ff; background: rgba(30,20,70,0.5); color: white; font-size: 1rem;">
+        <input type="email" name="email" placeholder="Your Email Address" required style="padding: 12px; border-radius: 8px; border: 1px solid #00f5ff; background: rgba(30,20,70,0.5); color: white; font-size: 1rem;">
+        <textarea name="message" placeholder="Your Message / Query" rows="6" required style="padding: 12px; border-radius: 8px; border: 1px solid #00f5ff; background: rgba(30,20,70,0.5); color: white; font-size: 1rem;"></textarea>
+        <button type="submit" style="padding: 14px; background: linear-gradient(135deg, #ff00aa, #00f5ff); color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 1.1rem; transition: all 0.3s;">Send Message</button>
+    </form>
+    <p id="formStatus" style="text-align:center; margin-top:20px; font-size:1.2rem; color:#00f5ff;"></p>
 
-    <footer>
-        © 2026 S. Shirley Maria Ann | Securing Tomorrow's Digital World
-    </footer>
-</main>
+    <p style="text-align:center; margin-top:40px; font-size:1.2rem;">
+        <strong>Alternative:</strong><br>
+        📧 Email: 25bcyc53@kristujayanti.com<br>
+        📱 Phone: 8618477831
+    </p>
+</section>
+
+<footer>
+    © 2026 S. Shirley Maria Ann | Securing Tomorrow's Digital World
+</footer>
 
 <script>
     document.getElementById('contactForm').addEventListener('submit', function(e) {
