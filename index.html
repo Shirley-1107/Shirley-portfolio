@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>S. Shirley Maria Ann | Cybersecurity Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+
     <style>
         :root {
             --primary: #ffd700;
-            --accent: #7b2cbf;
-            --emerald: #00d4a0;
-            --glow-gold: rgba(255, 215, 0, 0.75);
-            --glow-emerald: rgba(0, 212, 160, 0.75);
+            --text: #e0e0ff;
+            --card-bg: linear-gradient(135deg, rgba(40, 25, 70, 0.85), rgba(20, 10, 50, 0.9));
         }
 
         * {
@@ -20,18 +22,13 @@
             box-sizing: border-box;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
-
         body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(-45deg, #0a001a, #1a0033, #220044, #0a001a);
+            font-family: 'Inter', system-ui, sans-serif;
+            background: linear-gradient(-45deg, #0a001f, #1a0033, #220044, #0a001f);
             background-size: 400% 400%;
-            animation: gradient 25s ease infinite;
-            color: #f8f8ff;
+            animation: gradient 20s ease infinite;
+            color: var(--text);
             min-height: 100vh;
-            overflow-x: hidden;
         }
 
         @keyframes gradient {
@@ -41,306 +38,218 @@
         }
 
         nav {
-            background: rgba(10, 0, 30, 0.95);
-            backdrop-filter: blur(22px);
-            padding: 14px 0;
             position: fixed;
-            width: 100%;
             top: 0;
+            width: 100%;
+            background: rgba(10, 5, 30, 0.8);
+            backdrop-filter: blur(16px);
+            padding: 1rem 0;
             z-index: 1000;
-            border-bottom: 1px solid rgba(255,215,0,0.35);
-            box-shadow: 0 8px 35px rgba(0,0,0,0.7);
+            border-bottom: 1px solid rgba(255,215,0,0.15);
         }
 
-        nav .nav-container {
+        .nav-container {
             max-width: 1200px;
             margin: 0 auto;
             display: flex;
             justify-content: center;
-            gap: 26px;
-            flex-wrap: wrap;
+            gap: 2.5rem;
         }
 
         nav a {
-            color: var(--emerald);
+            color: #a0a0ff;
             text-decoration: none;
-            font-family: 'Orbitron', sans-serif;
-            font-weight: 600;
+            font-weight: 500;
             font-size: 1.05rem;
-            transition: all 0.4s ease;
-            text-shadow: 0 0 12px var(--glow-emerald);
+            transition: color 0.3s;
         }
 
         nav a:hover {
             color: var(--primary);
-            text-shadow: 0 0 35px var(--glow-gold);
-            transform: translateY(-4px);
         }
 
-        .hero {
+        main {
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 80px 20px 40px;
+            padding: 0 1.5rem;
         }
 
         .hero-card {
-            background: linear-gradient(135deg, rgba(30,10,60,0.75), rgba(12,0,31,0.85));
-            backdrop-filter: blur(24px);
-            border-radius: 32px;
-            padding: 55px 50px;
+            background: var(--card-bg);
+            backdrop-filter: blur(16px);
+            border-radius: 1.5rem;
+            padding: 3.5rem 3rem;
             max-width: 1100px;
             width: 100%;
-            border: 1px solid rgba(255,215,0,0.4);
-            box-shadow: 0 25px 100px rgba(0,0,0,0.7);
+            border: 1px solid rgba(255,215,0,0.12);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
             display: flex;
             align-items: center;
-            gap: 70px;
-            flex-wrap: wrap;
+            gap: 4rem;
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 900px) {
             .hero-card {
                 flex-direction: column;
                 text-align: center;
-                padding: 45px 25px;
-                gap: 45px;
+                padding: 3rem 2rem;
+                gap: 2.5rem;
             }
         }
 
         .hero-text {
             flex: 1;
-            min-width: 300px;
         }
 
         .hero-text h1 {
             font-family: 'Orbitron', sans-serif;
-            font-size: 2.8rem;
-            margin-bottom: 18px;
+            font-size: 3.4rem;
+            font-weight: 700;
             color: var(--primary);
-            text-shadow: 0 0 50px var(--glow-gold);
-            line-height: 1.15;
-            word-break: break-word;
-            overflow-wrap: break-word;
-            white-space: normal;
-            hyphens: auto;
-            overflow: visible;
+            margin-bottom: 1.2rem;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 900px) {
             .hero-text h1 {
-                font-size: 2.1rem;
-                line-height: 1.2;
+                font-size: 2.8rem;
             }
         }
 
         @media (max-width: 480px) {
             .hero-text h1 {
-                font-size: 1.85rem;
+                font-size: 2.3rem;
             }
         }
 
         .hero-text p {
             font-size: 1.35rem;
             color: #d0d0ff;
-            margin-bottom: 0;
+            line-height: 1.6;
+            max-width: 480px;
         }
 
-        @media (max-width: 768px) {
-            .hero-text p { font-size: 1.2rem; }
-        }
-
-        @media (max-width: 480px) {
-            .hero-text p { font-size: 1.1rem; }
+        @media (max-width: 900px) {
+            .hero-text p {
+                font-size: 1.25rem;
+                margin: 0 auto;
+            }
         }
 
         .hero-photo {
-            width: 260px;
-            height: 260px;
+            width: 240px;
+            height: 240px;
             border-radius: 50%;
-            border: 10px solid var(--primary);
+            border: 6px solid rgba(255,215,0,0.4);
             object-fit: cover;
-            box-shadow: 0 0 90px var(--glow-gold);
+            box-shadow: 0 0 60px rgba(255,215,0,0.35);
             flex-shrink: 0;
         }
 
-        @media (max-width: 768px) {
-            .hero-photo { width: 200px; height: 200px; }
+        @media (max-width: 900px) {
+            .hero-photo {
+                width: 220px;
+                height: 220px;
+            }
         }
 
         @media (max-width: 480px) {
-            .hero-photo { width: 180px; height: 180px; }
+            .hero-photo {
+                width: 190px;
+                height: 190px;
+            }
         }
 
+        /* Rest of your sections (About, Skills, Hobbies, Contact) */
         section {
-            padding: 70px 20px;
+            padding: 80px 20px;
             max-width: 1100px;
             margin: 0 auto;
-            opacity: 0;
-            transform: translateY(60px);
-            transition: all 1s ease-out;
-        }
-
-        section.visible {
-            opacity: 1;
-            transform: translateY(0);
         }
 
         h2 {
             font-family: 'Orbitron', sans-serif;
-            font-size: 3.2rem;
+            font-size: 2.8rem;
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 3rem;
             color: var(--primary);
-            text-shadow: 0 0 40px var(--glow-gold);
+            text-shadow: 0 0 30px var(--glow-gold);
         }
 
-        @media (max-width: 768px) {
-            h2 { font-size: 2.6rem; }
-        }
-
-        .about-card {
+        .about-card, .contact-card {
             background: rgba(30,10,60,0.5);
-            backdrop-filter: blur(20px);
-            border-radius: 24px;
-            padding: 40px;
-            border: 1px solid rgba(255,215,0,0.3);
-            box-shadow: 0 20px 80px rgba(0,0,0,0.6);
-            font-size: 1.2rem;
-            line-height: 1.8;
+            backdrop-filter: blur(16px);
+            border-radius: 1.5rem;
+            padding: 2.5rem;
+            border: 1px solid rgba(255,215,0,0.2);
             text-align: center;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        @media (max-width: 768px) {
-            .about-card { padding: 30px; font-size: 1.1rem; }
+            font-size: 1.15rem;
+            line-height: 1.7;
         }
 
         .skills-tags {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 14px;
-            margin: 30px auto;
-            max-width: 800px;
+            gap: 1rem;
+            margin: 2rem 0;
         }
 
         .skill-tag {
             background: rgba(107,72,255,0.25);
-            backdrop-filter: blur(10px);
             color: var(--primary);
-            padding: 10px 24px;
+            padding: 0.7rem 1.4rem;
             border-radius: 50px;
-            font-weight: 600;
-            border: 1px solid rgba(0,200,150,0.4);
-            transition: all 0.4s ease;
-        }
-
-        .skill-tag:hover {
-            background: var(--emerald);
-            color: #000;
-            transform: scale(1.1);
-            box-shadow: 0 0 30px var(--glow-emerald);
+            font-weight: 500;
+            border: 1px solid rgba(0,212,160,0.3);
         }
 
         .interests-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.8rem;
+            margin-top: 2rem;
         }
 
         .interest-card {
             background: rgba(30,20,70,0.55);
-            border-radius: 24px;
+            border-radius: 1.2rem;
             overflow: hidden;
-            border: 1px solid rgba(255,215,0,0.35);
-            transition: all 0.6s ease;
-            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255,215,0,0.2);
+            transition: all 0.4s ease;
         }
 
         .interest-card:hover {
-            transform: translateY(-20px);
-            box-shadow: 0 40px 100px var(--glow-emerald);
-            border-color: var(--emerald);
+            transform: translateY(-10px);
+            box-shadow: 0 25px 60px rgba(0,212,160,0.4);
         }
 
         .interest-card img {
             width: 100%;
-            height: 200px;
+            height: 180px;
             object-fit: cover;
         }
 
         .interest-card h3 {
             color: var(--primary);
-            padding: 18px 20px 8px;
-            font-size: 1.5rem;
+            padding: 1.2rem 1.5rem 0.5rem;
+            font-size: 1.4rem;
         }
 
         .interest-card p {
-            padding: 0 20px 30px;
+            padding: 0 1.5rem 1.8rem;
             color: #d0d0ff;
-            font-size: 1.05rem;
-        }
-
-        #contact {
-            background: rgba(30,10,60,0.4);
-            border-radius: 32px;
-            padding: 60px 25px;
-            margin: 80px auto;
-            max-width: 900px;
-            border: 1px solid rgba(255,215,0,0.3);
-            backdrop-filter: blur(20px);
-        }
-
-        #contact form {
-            max-width: 580px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 18px;
-        }
-
-        #contact input, #contact textarea {
-            padding: 16px 20px;
-            border-radius: 12px;
-            border: 2px solid var(--primary);
-            background: rgba(30,20,70,0.75);
-            color: white;
-            font-size: 1.1rem;
-            transition: all 0.4s;
-        }
-
-        #contact input:focus, #contact textarea:focus {
-            border-color: var(--emerald);
-            box-shadow: 0 0 30px var(--glow-emerald);
-        }
-
-        #contact button {
-            padding: 18px;
-            background: linear-gradient(135deg, var(--primary), #ffaa00);
-            color: #000;
-            border: none;
-            border-radius: 12px;
-            cursor: pointer;
-            font-weight: 700;
-            font-size: 1.25rem;
-            transition: all 0.4s;
-        }
-
-        #contact button:hover {
-            transform: scale(1.06);
-            box-shadow: 0 0 50px var(--glow-gold);
+            font-size: 1rem;
         }
 
         footer {
             text-align: center;
-            padding: 50px 20px;
-            background: rgba(0,0,0,0.95);
-            border-top: 1px solid rgba(255,215,0,0.4);
-            color: #c0c0ff;
+            padding: 3rem 1rem;
+            color: #a0a0cc;
+            font-size: 0.95rem;
         }
     </style>
 </head>
@@ -356,104 +265,23 @@
     </div>
 </nav>
 
-<section class="hero" id="home">
-    <div class="hero-card">
-        <div class="hero-text">
-            <h1>Hi, I'm S. Shirley Maria Ann</h1>
-            <p>Aspiring BCA Graduate in Cybersecurity</p>
+<main>
+    <section class="hero">
+        <div class="hero-card">
+            <div class="hero-text">
+                <h1>Hi, I'm S. Shirley Maria Ann</h1>
+                <p>Aspiring BCA Graduate in Cybersecurity</p>
+            </div>
+            <img class="hero-photo" src="https://raw.githubusercontent.com/Shirley-1107/Shirley-portfolio/main/shirley-new.jpg" alt="S. Shirley Maria Ann">
         </div>
-        <img class="hero-photo" src="https://raw.githubusercontent.com/Shirley-1107/Shirley-portfolio/main/shirley-new.jpg" alt="S. Shirley Maria Ann">
-    </div>
-</section>
+    </section>
+</main>
 
-<section id="about">
-    <h2>About Me</h2>
-    <div class="about-card">
-        <p>Passionate about programming, web development, and especially cybersecurity.<br>
-        I thrive on learning cutting-edge technologies and building practical projects that secure the digital world.</p>
-    </div>
-</section>
-
-<section id="skills">
-    <h2>Skills</h2>
-    <div class="skills-tags">
-        <div class="skill-tag">HTML5</div>
-        <div class="skill-tag">CSS3</div>
-        <div class="skill-tag">JavaScript</div>
-        <div class="skill-tag">Python</div>
-        <div class="skill-tag">C Programming</div>
-        <div class="skill-tag">Java</div>
-        <div class="skill-tag">Cybersecurity Basics</div>
-        <div class="skill-tag">Web Development</div>
-    </div>
-</section>
-
-<section id="hobbies">
-    <h2>My Hobbies & Interests</h2>
-    <div class="interests-grid">
-        <div class="interest-card">
-            <img src="https://fullbloomclub.net/wp-content/uploads/2024/03/realisitc-drawing.jpg" alt="Drawing">
-            <h3>Drawing</h3>
-            <p>Love creating detailed realistic artwork and digital illustrations in my free time.</p>
-        </div>
-        <div class="interest-card">
-            <img src="https://thumbs.dreamstime.com/b/karate-professional-female-against-beautiful-black-background-flash-light-behind-her-isolated-440610073.jpg" alt="Karate">
-            <h3>Karate / Martial Arts</h3>
-            <p>Practicing discipline, strength, and focus through martial arts training.</p>
-        </div>
-        <div class="interest-card">
-            <img src="https://images.unsplash.com/photo-1495521821757-a1efb6729352?auto=format&fit=crop&q=80" alt="Cooking">
-            <h3>Cooking</h3>
-            <p>Experimenting with flavors and creating delicious, creative dishes.</p>
-        </div>
-        <div class="interest-card">
-            <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&q=80" alt="Singing">
-            <h3>Singing</h3>
-            <p>Expressing emotions through music and melody — my happy place.</p>
-        </div>
-        <div class="interest-card">
-            <img src="https://st5.depositphotos.com/62628780/62051/i/1600/depositphotos_620512974-stock-photo-athlete-running-sports-track-woman.jpg" alt="Sports">
-            <h3>Sports</h3>
-            <p>Staying active and energetic with various outdoor and indoor sports.</p>
-        </div>
-    </div>
-</section>
-
-<section id="contact">
-    <h2>Contact Me</h2>
-    
-    <form id="contactForm" action="https://script.google.com/macros/s/AKfycbx4uaGAHedRgh2_3vntmLaEAOq2tlxIka_6tU6NbHfHBvPxH6vYmYXjCQ7FT6MrKggU7Q/exec" method="POST">
-        <input type="text" name="name" placeholder="Your Full Name" required>
-        <input type="email" name="email" placeholder="Your Email Address" required>
-        <textarea name="message" placeholder="Your Message / Query" rows="6" required></textarea>
-        <button type="submit">Send Message</button>
-    </form>
-
-    <p id="formStatus" style="text-align:center; margin:25px 0; font-size:1.3rem;"></p>
-
-    <div style="text-align:center; font-size:1.3rem; margin-top:50px; line-height:2;">
-        <strong>Alternative Contact:</strong><br><br>
-        📧 Email: 25bcyc53@kristujayanti.com<br>
-        📱 Phone: 8618477831
-    </div>
-</section>
+<!-- Keep your other sections (About, Skills, Hobbies, Contact) as they are -->
 
 <footer>
     © 2026 S. Shirley Maria Ann | Made with passion & purpose
 </footer>
 
-<script>
-// Scroll reveal
-const sections = document.querySelectorAll('section');
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-        }
-    });
-}, { threshold: 0.15 });
-
-sections.forEach(section => observer.observe(section));
-</script>
 </body>
 </html>
