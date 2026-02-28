@@ -20,7 +20,6 @@
             color: #e0e0ff;
             min-height: 100vh;
         }
-        /* NAVIGATION */
         nav {
             background: rgba(10, 0, 30, 0.6);
             backdrop-filter: blur(12px);
@@ -47,7 +46,6 @@
             text-shadow: 0 0 15px #ff00aa, 0 0 25px #ff00aa;
             transform: scale(1.08);
         }
-        /* HEADER */
         header {
             text-align: center;
             padding: 140px 20px 100px;
@@ -83,7 +81,6 @@
             box-shadow: 0 0 40px #00f5ff, inset 0 0 15px #00f5ff;
             margin-top: 20px;
         }
-        /* SECTIONS */
         section {
             margin: 60px 30px;
             padding: 60px 30px;
@@ -101,7 +98,6 @@
             color: #00f5ff;
             text-shadow: 0 0 15px #00f5ff;
         }
-        /* CARDS */
         .container {
             display: flex;
             flex-wrap: wrap;
@@ -141,7 +137,6 @@
         .card:hover img {
             transform: scale(1.08);
         }
-        /* CONTACT */
         #contact p {
             text-align: center;
             font-size: 1.3rem;
@@ -151,7 +146,6 @@
         #contact p strong {
             color: #00f5ff;
         }
-        /* FOOTER */
         footer {
             text-align: center;
             padding: 30px;
@@ -160,7 +154,6 @@
             margin-top: 60px;
             color: #a0a0ff;
         }
-        /* RESPONSIVE */
         @media (max-width: 768px) {
             header { padding: 120px 15px 80px; }
             nav a { margin: 0 12px; font-size: 1rem; }
@@ -176,20 +169,44 @@
     <a href="#hobbies">Hobbies</a>
     <a href="#contact">Contact</a>
 </nav>
+
 <header id="home">
     <h1>S. Shirley Maria Ann</h1>
     <p>Aspiring BCA Graduate in Cybersecurity</p>
     <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&q=80&w=800" alt="Cybersecurity Neon Profile">
 </header>
+
 <section id="about">
     <h2>About Me</h2>
     <p style="text-align:center; max-width:900px; margin:auto; font-size:1.2rem; line-height:1.7;">
-        Passionate about programming, web development, and especially <strong>cybersecurity</strong>.
-        I thrive on learning cutting-edge technologies and building practical projects that secure the digital world.
+        Hi, I am S. Shirley Maria Ann.
     </p>
 </section>
+
 <section id="skills">
-    <h2>Skills & Interests</h2>
+    <h2>Skills</h2>
+    <div class="container">
+        <div class="card">
+            <h3>HTML</h3>
+            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=800" alt="HTML & Web Development">
+        </div>
+        <div class="card">
+            <h3>C Programming</h3>
+            <img src="https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?auto=format&fit=crop&q=80" alt="C Programming Code">
+        </div>
+        <div class="card">
+            <h3>Java</h3>
+            <img src="https://images.unsplash.com/photo-1526379095098-d400fd0bf935?auto=format&fit=crop&q=80" alt="Java Programming">
+        </div>
+        <div class="card">
+            <h3>Python</h3>
+            <img src="https://images.unsplash.com/photo-1526379095098-d400fd0bf935?auto=format&fit=crop&q=80" alt="Python Programming">
+        </div>
+    </div>
+</section>
+
+<section id="hobbies">
+    <h2>My Hobbies & Interests</h2>
     <div class="container">
         <div class="card">
             <h3>Drawing</h3>
@@ -207,29 +224,13 @@
             <h3>Singing</h3>
             <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&q=80" alt="Singing passion">
         </div>
-       <div class="card">
+        <div class="card">
             <h3>Sports</h3>
-            <img src="https://st5.depositphotos.com/62628780/62051/i/1600/depositphotos_620512974-stock-photo-athlete-running-sports-track-woman.jpg" alt="Dynamic female athlete sprinting on track - representing energy and passion for sports">
+            <img src="https://st5.depositphotos.com/62628780/62051/i/1600/depositphotos_620512974-stock-photo-athlete-running-sports-track-woman.jpg" alt="Dynamic female athlete sprinting on track">
         </div>
     </div>
 </section>
-<section id="hobbies">
-    <h2>My Hobbies</h2>
-    <div class="container">
-        <div class="card">
-            <h3>Gardening</h3>
-            <img src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&q=80" alt="Gardening">
-        </div>
-        <div class="card">
-            <h3>Movies</h3>
-            <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&q=80" alt="Movies">
-        </div>
-        <div class="card">
-            <h3>Learning Tech</h3>
-            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80" alt="Technology learning">
-        </div>
-    </div>
-</section>
+
 <section id="contact">
     <h2>Contact Me</h2>
     <form id="contactForm" action="https://script.google.com/macros/s/AKfycbx4uaGAHedRgh2_3vntmLaEAOq2tlxIka_6tU6NbHfHBvPxH6vYmYXjCQ7FT6MrKggU7Q/exec" method="POST" style="max-width: 500px; margin: auto; display: flex; flex-direction: column; gap: 15px; padding: 20px;">
@@ -246,9 +247,11 @@
         📱 Phone: 8618477831
     </p>
 </section>
+
 <footer>
     © 2026 S. Shirley Maria Ann | Securing Tomorrow's Digital World
 </footer>
+
 <script>
     document.getElementById('contactForm').addEventListener('submit', function(e) {
         e.preventDefault();
