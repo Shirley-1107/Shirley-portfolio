@@ -7,12 +7,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #00fff5;       /* Ultra bright neon cyan - very attractive */
-            --accent: #ff00d9;        /* Vibrant electric magenta - luxurious pop */
-            --dark1: #0c001f;
-            --dark2: #1e0042;
-            --glow: rgba(0, 255, 245, 0.75);     /* Strong cyan glow */
-            --glow-accent: rgba(255, 0, 217, 0.75); /* Magenta glow */
+            --primary: #ffd700;       /* Rich metallic gold */
+            --accent: #7b2cbf;        /* Deep luxurious purple */
+            --emerald: #00c896;       /* Vibrant emerald green */
+            --dark1: #12001f;
+            --dark2: #1e0038;
+            --glow-gold: rgba(255, 215, 0, 0.65);
+            --glow-purple: rgba(123, 44, 191, 0.65);
+            --glow-emerald: rgba(0, 200, 150, 0.65);
         }
 
         * {
@@ -27,9 +29,9 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(-45deg, var(--dark1), var(--dark2), #2a0060, var(--dark1));
+            background: linear-gradient(-45deg, var(--dark1), var(--dark2), #2a004f, var(--dark1));
             background-size: 400% 400%;
-            animation: gradient 18s ease infinite;
+            animation: gradient 22s ease infinite;
             color: #f8f8ff;
             min-height: 100vh;
             overflow-x: hidden;
@@ -42,38 +44,38 @@
         }
 
         nav {
-            background: rgba(12, 0, 31, 0.94);
+            background: rgba(18, 0, 31, 0.94);
             backdrop-filter: blur(20px);
             padding: 18px 0;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid rgba(0, 255, 245, 0.45);
+            border-bottom: 1px solid rgba(255, 215, 0, 0.4);
             box-shadow: 0 8px 40px rgba(0,0,0,0.6);
         }
 
         nav a {
-            color: var(--primary);
+            color: var(--emerald);
             text-decoration: none;
             margin: 0 25px;
             font-family: 'Orbitron', sans-serif;
             font-weight: 600;
             font-size: 1.15rem;
             transition: all 0.5s ease;
-            text-shadow: 0 0 14px var(--glow);
+            text-shadow: 0 0 12px var(--glow-emerald);
         }
 
         nav a:hover {
-            color: var(--accent);
-            text-shadow: 0 0 40px var(--glow-accent);
+            color: var(--primary);
+            text-shadow: 0 0 35px var(--glow-gold);
             transform: translateY(-4px);
         }
 
         header {
             text-align: center;
             padding: 180px 30px 120px;
-            background: linear-gradient(rgba(0,0,0,0.84), rgba(12,0,31,0.7)), url('https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&q=80') center/cover no-repeat fixed;
+            background: linear-gradient(rgba(0,0,0,0.84), rgba(18,0,31,0.7)), url('https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&q=80') center/cover no-repeat fixed;
             position: relative;
         }
 
@@ -81,7 +83,7 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: radial-gradient(circle at 30% 20%, rgba(0,255,245,0.35), transparent 75%);
+            background: radial-gradient(circle at 30% 20%, rgba(255,215,0,0.25), transparent 75%);
         }
 
         header h1 {
@@ -89,7 +91,7 @@
             font-size: 5.2rem;
             margin-bottom: 20px;
             color: var(--primary);
-            text-shadow: 0 0 60px var(--glow);
+            text-shadow: 0 0 60px var(--glow-gold);
             overflow: hidden;
             white-space: nowrap;
         }
@@ -97,7 +99,7 @@
         .typing {
             display: inline-block;
             overflow: hidden;
-            border-right: 0.15em solid var(--accent);
+            border-right: 0.15em solid var(--emerald);
             white-space: nowrap;
             animation: typing 4s steps(40, end), blink 0.75s step-end infinite;
         }
@@ -109,24 +111,24 @@
 
         @keyframes blink {
             from, to { border-color: transparent }
-            50% { border-color: var(--accent); }
+            50% { border-color: var(--emerald); }
         }
 
         header p {
             font-size: 1.9rem;
             color: var(--accent);
             margin-bottom: 60px;
-            text-shadow: 0 0 35px var(--glow-accent);
+            text-shadow: 0 0 30px var(--glow-purple);
         }
 
         header img {
             width: 300px;
             height: 300px;
             border-radius: 50%;
-            border: 10px solid rgba(0, 255, 245, 0.8);
+            border: 10px solid var(--primary);
             object-fit: cover;
             object-position: center 10%;
-            box-shadow: 0 0 140px rgba(0,255,245,0.9), inset 0 0 50px rgba(0,255,245,0.7);
+            box-shadow: 0 0 120px var(--glow-gold), inset 0 0 45px rgba(255,215,0,0.5);
             margin-top: 50px;
             animation: breathe 8s ease-in-out infinite;
         }
@@ -139,10 +141,10 @@
         section {
             margin: 80px 50px;
             padding: 70px 50px;
-            background: rgba(20, 10, 50, 0.52);
+            background: rgba(30, 10, 60, 0.55);
             border-radius: 36px;
             backdrop-filter: blur(28px);
-            border: 1px solid rgba(0, 255, 245, 0.5);
+            border: 1px solid rgba(255, 215, 0, 0.45);
             box-shadow: 0 30px 100px rgba(0,0,0,0.85);
             opacity: 0;
             transform: translateY(60px);
@@ -160,7 +162,7 @@
             font-family: 'Orbitron', sans-serif;
             font-size: 3.8rem;
             color: var(--primary);
-            text-shadow: 0 0 50px var(--glow);
+            text-shadow: 0 0 50px var(--glow-gold);
         }
 
         .container {
@@ -175,15 +177,15 @@
             padding: 40px;
             border-radius: 32px;
             background: rgba(30, 20, 70, 0.58);
-            border: 1px solid rgba(0, 255, 245, 0.55);
+            border: 1px solid rgba(255, 215, 0, 0.5);
             transition: all 0.7s ease;
             backdrop-filter: blur(18px);
         }
 
         .card:hover {
             transform: translateY(-30px) scale(1.07);
-            box-shadow: 0 50px 110px rgba(0, 255, 245, 0.8);
-            border-color: var(--accent);
+            box-shadow: 0 50px 110px var(--glow-gold);
+            border-color: var(--emerald);
         }
 
         .card h3 {
@@ -198,8 +200,8 @@
             height: 220px;
             border-radius: 20px;
             object-fit: cover;
-            border: 2px solid rgba(0, 255, 245, 0.75);
-            box-shadow: 0 0 45px rgba(0, 255, 245, 0.7);
+            border: 2px solid rgba(0, 200, 150, 0.7);
+            box-shadow: 0 0 45px var(--glow-emerald);
             transition: all 0.7s ease;
         }
 
@@ -216,7 +218,7 @@
             padding: 50px;
             background: rgba(30,20,70,0.58);
             border-radius: 36px;
-            border: 1px solid rgba(0,255,245,0.55);
+            border: 1px solid rgba(255,215,0,0.5);
             backdrop-filter: blur(20px);
         }
 
@@ -231,8 +233,8 @@
         }
 
         #contact input:focus, #contact textarea:focus {
-            border-color: var(--accent);
-            box-shadow: 0 0 40px rgba(230,0,255,0.6);
+            border-color: var(--emerald);
+            box-shadow: 0 0 40px var(--glow-emerald);
         }
 
         #contact button {
@@ -256,7 +258,7 @@
             text-align: center;
             padding: 60px 20px;
             background: rgba(0,0,0,0.97);
-            border-top: 1px solid rgba(0, 255, 245, 0.5);
+            border-top: 1px solid rgba(255, 215, 0, 0.5);
             margin-top: 120px;
             color: #c0c0ff;
         }
@@ -284,9 +286,9 @@
     <h1><span class="typing">Hii, I'm S. Shirley Maria Ann.</span></h1>
     <img src="https://raw.githubusercontent.com/Shirley-1107/Shirley-portfolio/main/shirley-new.jpg"
          alt="S. Shirley Maria Ann"
-         style="width: 300px; height: 300px; border-radius: 50%; border: 10px solid rgba(0,255,245,0.75);
+         style="width: 300px; height: 300px; border-radius: 50%; border: 10px solid var(--primary);
                 object-fit: cover; object-position: center 10%;
-                box-shadow: 0 0 120px rgba(0,255,245,0.9), inset 0 0 45px rgba(0,255,245,0.7);
+                box-shadow: 0 0 120px var(--glow-gold), inset 0 0 45px rgba(255,215,0,0.6);
                 margin-top: 50px;">
 </header>
 
@@ -349,7 +351,7 @@
 <section id="contact">
     <h2>Contact Me</h2>
    
-    <form id="contactForm" action="https://script.google.com/macros/s/AKfycbx4uaGAHedRgh2_3vntmLaEAOq2tlxIka_6tU6NbHfHBvPxH6vYmYXjCQ7FT6MrKggU7Q/exec" method="POST" style="max-width: 580px; margin: 0 auto 40px; display: flex; flex-direction: column; gap: 20px; padding: 45px; background: rgba(30,20,70,0.55); border-radius: 32px; border: 1px solid rgba(0,255,245,0.5); backdrop-filter: blur(18px);">
+    <form id="contactForm" action="https://script.google.com/macros/s/AKfycbx4uaGAHedRgh2_3vntmLaEAOq2tlxIka_6tU6NbHfHBvPxH6vYmYXjCQ7FT6MrKggU7Q/exec" method="POST" style="max-width: 580px; margin: 0 auto 40px; display: flex; flex-direction: column; gap: 20px; padding: 45px; background: rgba(30,20,70,0.55); border-radius: 32px; border: 1px solid rgba(255,215,0,0.5); backdrop-filter: blur(18px);">
         <input type="text" name="name" placeholder="Your Full Name" required>
         <input type="email" name="email" placeholder="Your Email Address" required>
         <textarea name="message" placeholder="Your Message / Query" rows="6" required></textarea>
