@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>S. Shirley Maria Ann | Cybersecurity Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -17,213 +16,224 @@
         }
         body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(-45deg, #0a001f, #1a0033, #220044, #000814);
-            background-size: 400% 400%;
-            animation: gradient 15s ease infinite;
+            background: linear-gradient(135deg, #0a001f, #1a0033, #000814);
             color: #e0e0ff;
             min-height: 100vh;
-            overflow-x: hidden;
+            padding-left: 120px; /* Space for fixed photo on left */
         }
 
-        @keyframes gradient {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        /* Fixed Left Panel with Profile Photo */
-        .left-panel {
+        /* Fixed profile photo in top-left corner */
+        .fixed-profile {
             position: fixed;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 280px;
-            background: rgba(10, 0, 30, 0.85);
-            backdrop-filter: blur(16px);
-            border-right: 1px solid rgba(0, 245, 255, 0.4);
-            padding: 40px 20px;
+            top: 40px;
+            left: 40px;
             z-index: 1000;
-            overflow-y: auto;
             text-align: center;
         }
 
-        .profile-photo {
-            width: 180px;
-            height: 180px;
+        .fixed-profile img {
+            width: 160px;
+            height: 160px;
             border-radius: 50%;
-            border: 6px solid #00ffff;
+            border: 5px solid #00f5ff;
             object-fit: cover;
-            object-position: center 15%;
-            box-shadow: 0 0 60px rgba(0,255,255,0.8), inset 0 0 25px rgba(0,255,255,0.5);
-            margin-bottom: 20px;
+            box-shadow: 0 0 40px #00f5ff, inset 0 0 15px #00f5ff;
         }
 
-        .profile-name {
+        .fixed-profile h1 {
             font-family: 'Orbitron', sans-serif;
-            font-size: 1.8rem;
-            color: #00ffff;
-            text-shadow: 0 0 20px #00ffff;
-            margin-bottom: 8px;
-        }
-
-        .profile-title {
-            font-size: 1.1rem;
-            color: #ff00cc;
-            margin-bottom: 40px;
-        }
-
-        /* Sidebar Icons (below profile) */
-        .sidebar-icons {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 35px;
-        }
-
-        .sidebar-icons a {
+            font-size: 1.6rem;
             color: #00f5ff;
-            font-size: 2rem;
-            transition: all 0.4s ease;
+            text-shadow: 0 0 15px #00f5ff;
+            margin: 10px 0 5px;
+        }
+
+        .fixed-profile p {
+            font-size: 0.95rem;
+            color: #ff00aa;
+            text-shadow: 0 0 8px #ff00aa;
+        }
+
+        nav {
+            background: rgba(10, 0, 30, 0.6);
+            backdrop-filter: blur(12px);
+            padding: 18px;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 999;
+            border-bottom: 1px solid rgba(0, 245, 255, 0.15);
+        }
+
+        nav a {
+            color: #00f5ff;
             text-decoration: none;
+            margin: 0 20px;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: all 0.4s;
+            text-shadow: 0 0 8px rgba(0, 245, 255, 0.5);
         }
 
-        .sidebar-icons a:hover {
-            color: #ff00cc;
-            transform: scale(1.3);
-            text-shadow: 0 0 25px #ff00cc;
+        nav a:hover {
+            color: #ff00aa;
+            text-shadow: 0 0 15px #ff00aa, 0 0 25px #ff00aa;
+            transform: scale(1.08);
         }
 
-        /* Main Content */
-        main {
-            margin-left: 280px;
-            padding: 40px 60px 100px;
+        header {
+            text-align: center;
+            padding: 140px 20px 100px;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(10,0,30,0.4)), url('https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&q=80') center/cover no-repeat;
+            position: relative;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at 30% 20%, rgba(0,245,255,0.12), transparent 60%);
+            pointer-events: none;
         }
 
         section {
-            margin: 100px 0;
-            padding: 80px 60px;
-            background: rgba(20, 10, 50, 0.45);
-            border-radius: 32px;
-            backdrop-filter: blur(24px);
-            border: 1px solid rgba(0, 245, 255, 0.4);
-            box-shadow: 0 30px 90px rgba(0,0,0,0.7);
-            opacity: 0;
-            transform: translateY(80px);
-            transition: all 1s ease-out;
-        }
-
-        section.visible {
-            opacity: 1;
-            transform: translateY(0);
+            margin: 60px 30px;
+            padding: 60px 30px;
+            background: rgba(20, 10, 50, 0.25);
+            border-radius: 25px;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(0, 245, 255, 0.18);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.6);
         }
 
         h2 {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 45px;
             font-family: 'Orbitron', sans-serif;
-            font-size: 3.5rem;
-            color: #00ffff;
-            text-shadow: 0 0 35px #00ffff;
+            font-size: 2.5rem;
+            color: #00f5ff;
+            text-shadow: 0 0 15px #00f5ff;
         }
 
         .container {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 50px;
+            gap: 35px;
         }
 
         .card {
-            width: 340px;
-            padding: 40px;
-            border-radius: 30px;
-            background: rgba(30, 20, 70, 0.5);
-            border: 1px solid rgba(0, 245, 255, 0.45);
-            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            width: 280px;
+            text-align: center;
+            padding: 25px;
+            border-radius: 20px;
+            background: rgba(30, 20, 70, 0.3);
+            border: 1px solid rgba(0, 245, 255, 0.2);
+            transition: all 0.5s ease;
             overflow: hidden;
-            backdrop-filter: blur(15px);
         }
 
         .card:hover {
-            transform: translateY(-30px) scale(1.08);
-            box-shadow: 0 50px 100px rgba(0, 245, 255, 0.7);
-            border-color: #ff00cc;
+            transform: translateY(-15px) scale(1.05);
+            box-shadow: 0 20px 50px rgba(0, 245, 255, 0.4);
+            border-color: #ff00aa;
+        }
+
+        .card h3 {
+            color: #00f5ff;
+            margin-bottom: 15px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.4rem;
+        }
+
+        .card img {
+            width: 100%;
+            height: 180px;
+            border-radius: 14px;
+            object-fit: cover;
+            border: 2px solid rgba(0, 245, 255, 0.4);
+            box-shadow: 0 0 20px rgba(0, 245, 255, 0.3);
+            transition: all 0.4s;
+        }
+
+        .card:hover img {
+            transform: scale(1.08);
+        }
+
+        #contact p {
+            text-align: center;
+            font-size: 1.3rem;
+            margin: 15px 0;
+            color: #e0e0ff;
+        }
+
+        #contact p strong {
+            color: #00f5ff;
         }
 
         footer {
             text-align: center;
-            padding: 60px 20px;
-            background: rgba(0,0,0,0.95);
-            border-top: 1px solid rgba(0, 245, 255, 0.5);
-            margin-top: 120px;
-            color: #b0b0ff;
+            padding: 30px;
+            background: rgba(0,0,0,0.8);
+            border-top: 1px solid rgba(0, 245, 255, 0.2);
+            margin-top: 60px;
+            color: #a0a0ff;
         }
 
-        /* Mobile - Sidebar becomes top bar */
         @media (max-width: 768px) {
-            .left-panel {
-                position: fixed;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: auto;
+            .fixed-profile {
+                position: static;
                 width: 100%;
-                height: 100px;
-                padding: 15px 0;
-                flex-direction: row;
-                justify-content: space-around;
-                align-items: center;
-                border-right: none;
-                border-bottom: 1px solid rgba(0, 245, 255, 0.3);
+                padding: 20px;
+                background: rgba(10, 0, 30, 0.8);
+                margin-bottom: 20px;
             }
 
-            .profile-photo {
-                width: 80px;
-                height: 80px;
-                margin: 0;
+            body {
+                padding-left: 0;
             }
 
-            .profile-name, .profile-title {
-                display: none;
+            header {
+                padding: 120px 15px 80px;
             }
 
-            .sidebar-icons {
-                flex-direction: row;
-                gap: 20px;
+            nav a {
+                margin: 0 12px;
+                font-size: 1rem;
             }
 
-            main {
-                margin-left: 0;
-                margin-top: 120px;
-                padding: 30px 20px;
+            section {
+                margin: 40px 15px;
+                padding: 40px 20px;
             }
         }
     </style>
 </head>
 <body>
 
-<!-- Fixed Left Panel with Profile Photo & Icons -->
-<div class="left-panel">
+<!-- Fixed Profile Photo in Top-Left Corner -->
+<div class="fixed-profile">
     <img src="https://raw.githubusercontent.com/Shirley-1107/Shirley-portfolio/main/shirley-new.jpg"
-         alt="S. Shirley Maria Ann"
-         class="profile-photo">
-    <div class="profile-name">Hii, I'm S. Shirley Maria Ann.</div>
-    <div class="profile-title">Aspiring BCA Graduate in Cybersecurity</div>
-
-    <div class="sidebar-icons">
-        <a href="#home" title="Home"><i class="fas fa-home"></i></a>
-        <a href="#about" title="About"><i class="fas fa-user"></i></a>
-        <a href="#skills" title="Skills"><i class="fas fa-code"></i></a>
-        <a href="#hobbies" title="Hobbies"><i class="fas fa-heart"></i></a>
-        <a href="#contact" title="Contact"><i class="fas fa-envelope"></i></a>
-    </div>
+         alt="S. Shirley Maria Ann">
+    <h1>Hii, I'm S. Shirley Maria Ann.</h1>
+    <p>Aspiring BCA Graduate in Cybersecurity</p>
 </div>
+
+<nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#hobbies">Hobbies</a>
+    <a href="#contact">Contact</a>
+</nav>
 
 <main>
     <section id="about">
         <h2>About Me</h2>
-        <p style="text-align:center; max-width:900px; margin:auto; font-size:1.3rem; line-height:1.8;">
-            Passionate about programming, web development, and especially cybersecurity.  
+        <p style="text-align:center; max-width:900px; margin:auto; font-size:1.2rem; line-height:1.7;">
+            Passionate about programming, web development, and especially <strong>cybersecurity</strong>.
             I thrive on learning cutting-edge technologies and building practical projects that secure the digital world.
         </p>
     </section>
@@ -278,18 +288,19 @@
 
     <section id="contact">
         <h2>Contact Me</h2>
-        <form id="contactForm" action="https://script.google.com/macros/s/AKfycbx4uaGAHedRgh2_3vntmLaEAOq2tlxIka_6tU6NbHfHBvPxH6vYmYXjCQ7FT6MrKggU7Q/exec" method="POST" style="max-width: 580px; margin: 0 auto 40px; display: flex; flex-direction: column; gap: 22px; padding: 40px; background: rgba(30,20,70,0.45); border-radius: 28px; border: 1px solid rgba(0,245,255,0.4); backdrop-filter: blur(16px);">
-            <input type="text" name="name" placeholder="Your Full Name" required>
-            <input type="email" name="email" placeholder="Your Email Address" required>
-            <textarea name="message" placeholder="Your Message / Query" rows="6" required></textarea>
-            <button type="submit">Send Message</button>
+        <form id="contactForm" action="https://script.google.com/macros/s/AKfycbx4uaGAHedRgh2_3vntmLaEAOq2tlxIka_6tU6NbHfHBvPxH6vYmYXjCQ7FT6MrKggU7Q/exec" method="POST" style="max-width: 500px; margin: auto; display: flex; flex-direction: column; gap: 15px; padding: 20px;">
+            <input type="text" name="name" placeholder="Your Full Name" required style="padding: 12px; border-radius: 8px; border: 1px solid #00f5ff; background: rgba(30,20,70,0.5); color: white; font-size: 1rem;">
+            <input type="email" name="email" placeholder="Your Email Address" required style="padding: 12px; border-radius: 8px; border: 1px solid #00f5ff; background: rgba(30,20,70,0.5); color: white; font-size: 1rem;">
+            <textarea name="message" placeholder="Your Message / Query" rows="6" required style="padding: 12px; border-radius: 8px; border: 1px solid #00f5ff; background: rgba(30,20,70,0.5); color: white; font-size: 1rem;"></textarea>
+            <button type="submit" style="padding: 14px; background: linear-gradient(135deg, #ff00aa, #00f5ff); color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 1.1rem; transition: all 0.3s;">Send Message</button>
         </form>
-        <p id="formStatus" style="text-align:center; margin: 20px 0; font-size:1.3rem;"></p>
-        <div style="text-align:center; font-size:1.3rem; margin-top: 40px;">
-            <strong>Alternative Contact:</strong><br><br>
+        <p id="formStatus" style="text-align:center; margin-top:20px; font-size:1.2rem; color:#00f5ff;"></p>
+
+        <p style="text-align:center; margin-top:40px; font-size:1.2rem;">
+            <strong>Alternative:</strong><br>
             📧 Email: 25bcyc53@kristujayanti.com<br>
             📱 Phone: 8618477831
-        </div>
+        </p>
     </section>
 
     <footer>
@@ -298,7 +309,6 @@
 </main>
 
 <script>
-    // Form submission
     document.getElementById('contactForm').addEventListener('submit', function(e) {
         e.preventDefault();
         const form = e.target;
@@ -326,18 +336,6 @@
             status.style.color = '#ff5555';
         });
     });
-
-    // Scroll animation
-    const sections = document.querySelectorAll('section');
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, { threshold: 0.15 });
-
-    sections.forEach(section => observer.observe(section));
 </script>
 </body>
 </html>
