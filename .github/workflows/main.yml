@@ -13,7 +13,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    -- name: Run Lighthouse Audit
+    -- name: Checkout
+        uses: actions/checkout@v3
+    name: Run Lighthouse Audit
         uses: treosh/lighthouse-ci-action@v10
         with:
           urls: 'https://shirley-1107.github.io/Shirley-portfolio/'
