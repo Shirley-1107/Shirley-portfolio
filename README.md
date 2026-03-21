@@ -1,5 +1,4 @@
-![Build Status](https://github.com/Shirley-1107/Shirley-portfolio/actions/workflows/update main.yml/badge.svg)
-# Shirley Maria Ann Portfolio
+[![.github/workflows/main.yml](https://github.com/Shirley-1107/Shirley-portfolio/actions/workflows/main.yml/badge.svg)](https://github.com/Shirley-1107/Shirley-portfolio/actions/workflows/main.yml)# Shirley Maria Ann Portfolio
 
 Single-page cybersecurity portfolio website.
 
