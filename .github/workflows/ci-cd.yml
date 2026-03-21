@@ -30,7 +30,7 @@ jobs:
     - name: Lint CSS
       run: stylelint "**/*.css"
 
-    - name: Run Lighthouse CI (performance & accessibility check)
+    - name: Run Lighthouse CI (performance &amp accessibility check)
       uses: treosh/lighthouse-ci-action@v10
       with:
         urls: 'https://shirley-1107.github.io/Shirley-portfolio/'
@@ -44,7 +44,7 @@ jobs:
         check-modified-files-only: 'yes'
 
     - name: Deploy to GitHub Pages (only on push to main)
-      if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+      if: github.event_name == 'push' &amp&amp github.ref == 'refs/heads/main'
       uses: peaceiris/actions-gh-pages@v4
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
