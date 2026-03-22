@@ -5,9 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>S. Shirley Maria Ann | Cybersecurity Portfolio</title>
 
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+
+  <!-- Google Analytics (replace G-XXXXXXXXXX with your real Measurement ID) -->
+  <!-- Get your ID from https://analytics.google.com -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-0QHPBLNK08"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
 
   <style>
     :root {
@@ -15,15 +26,26 @@
       --text: #e0e0ff;
       --card-bg: linear-gradient(135deg, rgba(35, 20, 65, 0.92), rgba(15, 5, 45, 0.95));
       --glow: rgba(255, 215, 0, 0.45);
+      --bg-start: #0f001a;
+      --bg-end: #1c0038;
+    }
+
+    body.light-mode {
+      --text: #1a1a3d;
+      --card-bg: linear-gradient(135deg, rgba(240, 240, 255, 0.95), rgba(220, 220, 255, 0.92));
+      --glow: rgba(0, 0, 0, 0.15);
+      --bg-start: #f0f0ff;
+      --bg-end: #e0e0ff;
     }
 
     * { margin:0; padding:0; box-sizing:border-box; }
     body {
       font-family: 'Inter', system-ui, sans-serif;
-      background: linear-gradient(to bottom right, #0f001a, #1c0038);
+      background: linear-gradient(to bottom right, var(--bg-start), var(--bg-end));
       color: var(--text);
       min-height: 100vh;
       line-height: 1.6;
+      transition: background 0.5s ease, color 0.5s ease;
     }
 
     header {
@@ -35,6 +57,12 @@
       padding: 1.1rem 0;
       z-index: 100;
       border-bottom: 1px solid rgba(255,215,0,0.12);
+      transition: background 0.5s ease;
+    }
+
+    body.light-mode header {
+      background: rgba(255, 255, 255, 0.9);
+      border-bottom: 1px solid rgba(0,0,0,0.12);
     }
 
     nav {
@@ -54,7 +82,29 @@
       transition: color 0.3s;
     }
 
+    body.light-mode nav a { color: #4a4a8f; }
     nav a:hover { color: var(--gold); }
+
+    #theme-toggle {
+      position: fixed;
+      top: 1.2rem;
+      right: 2rem;
+      background: rgba(255,215,0,0.2);
+      border: none;
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: all 0.3s;
+      z-index: 999;
+    }
+
+    body.light-mode #theme-toggle { background: rgba(0,0,0,0.1); }
+    #theme-toggle:hover {
+      background: var(--gold);
+      transform: scale(1.1);
+    }
 
     main { padding-top: 80px; }
 
@@ -76,15 +126,16 @@
       display: flex;
       align-items: center;
       gap: 5rem;
+      transition: background 0.5s ease, border 0.5s ease, box-shadow 0.5s ease;
     }
 
-    @media (max-width: 960px) {
-      .hero-card { padding: 3.5rem 2.5rem; gap: 4rem; }
+    body.light-mode .hero-card {
+      border: 1px solid rgba(0,0,0,0.15);
+      box-shadow: 0 25px 80px rgba(0,0,0,0.15);
     }
 
-    @media (max-width: 520px) {
-      .hero-card { padding: 2.5rem 1.8rem; gap: 2.5rem; }
-    }
+    @media (max-width: 960px) { .hero-card { padding: 3.5rem 2.5rem; gap: 4rem; } }
+    @media (max-width: 520px) { .hero-card { padding: 2.5rem 1.8rem; gap: 2.5rem; } }
 
     .hero-left { flex: 1; }
 
@@ -100,6 +151,8 @@
       white-space: normal;
     }
 
+    body.light-mode .hero-left h1 { color: #b8860b; }
+
     @media (max-width: 960px) { .hero-left h1 { font-size: 2.8rem; } }
     @media (max-width: 520px) { .hero-left h1 { font-size: 2.4rem; } }
     @media (max-width: 400px) { .hero-left h1 { font-size: 2.1rem; } }
@@ -110,6 +163,8 @@
       line-height: 1.55;
       max-width: 460px;
     }
+
+    body.light-mode .hero-left p { color: #4a4a8f; }
 
     @media (max-width: 960px) { .hero-left p { font-size: 1.25rem; } }
     @media (max-width: 520px) { .hero-left p { font-size: 1.15rem; } }
@@ -142,6 +197,8 @@
       text-shadow: 0 0 30px var(--glow);
     }
 
+    body.light-mode h2 { color: #b8860b; text-shadow: none; }
+
     @media (max-width: 768px) { h2 { font-size: 2.3rem; } }
 
     .about-card {
@@ -153,6 +210,12 @@
       text-align: center;
       font-size: 1.15rem;
       line-height: 1.7;
+      transition: background 0.5s ease, border 0.5s ease;
+    }
+
+    body.light-mode .about-card {
+      background: rgba(240,240,255,0.7);
+      border: 1px solid rgba(0,0,0,0.15);
     }
 
     .skills-tags {
@@ -170,45 +233,79 @@
       border-radius: 50px;
       font-weight: 500;
       border: 1px solid rgba(0,212,160,0.3);
+      transition: background 0.3s;
     }
 
-    .interests-grid {
+    body.light-mode .skill-tag {
+      background: rgba(0,0,0,0.1);
+      color: #b8860b;
+      border-color: rgba(0,0,0,0.2);
+    }
+
+    .projects-grid, .interests-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 1.8rem;
       margin-top: 2rem;
     }
 
-    .interest-card {
+    .project-card, .interest-card {
       background: rgba(30,20,70,0.55);
       border-radius: 1.2rem;
       overflow: hidden;
       border: 1px solid rgba(255,215,0,0.2);
       transition: all 0.4s;
+      text-align: center;
     }
 
-    .interest-card:hover {
+    body.light-mode .project-card, body.light-mode .interest-card {
+      background: rgba(240,240,255,0.7);
+      border: 1px solid rgba(0,0,0,0.15);
+    }
+
+    .project-card:hover, .interest-card:hover {
       transform: translateY(-10px);
       box-shadow: 0 25px 60px rgba(0,212,160,0.4);
     }
 
-    .interest-card img {
+    body.light-mode .project-card:hover, body.light-mode .interest-card:hover {
+      box-shadow: 0 25px 60px rgba(0,0,0,0.15);
+    }
+
+    .project-card img, .interest-card img {
       width: 100%;
       height: 180px;
       object-fit: cover;
     }
 
-    .interest-card h3 {
+    .project-card h3, .interest-card h3 {
       color: var(--gold);
       padding: 1.2rem 1.5rem 0.5rem;
       font-size: 1.4rem;
     }
 
-    .interest-card p {
+    body.light-mode .project-card h3, body.light-mode .interest-card h3 {
+      color: #b8860b;
+    }
+
+    .project-card p, .interest-card p {
       padding: 0 1.5rem 1.8rem;
-      color: #d0d0ff;
       font-size: 1rem;
     }
+
+    .project-links {
+      padding: 0 1.5rem 1.5rem;
+    }
+
+    .project-links a {
+      color: var(--gold);
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    body.light-mode .project-links a { color: #b8860b; }
+    .project-links a:hover { text-decoration: underline; }
 
     #contact {
       background: rgba(30,10,60,0.5);
@@ -219,6 +316,12 @@
       max-width: 900px;
       border: 1px solid rgba(255,215,0,0.2);
       text-align: center;
+      transition: background 0.5s ease, border 0.5s ease;
+    }
+
+    body.light-mode #contact {
+      background: rgba(240,240,255,0.7);
+      border: 1px solid rgba(0,0,0,0.15);
     }
 
     #contact form {
@@ -236,6 +339,13 @@
       background: rgba(20,10,50,0.6);
       color: white;
       font-size: 1.05rem;
+      transition: background 0.5s ease, border 0.5s ease;
+    }
+
+    body.light-mode #contact input, body.light-mode #contact textarea {
+      background: rgba(255,255,255,0.8);
+      color: #1a1a3d;
+      border: 1px solid rgba(0,0,0,0.2);
     }
 
     #contact button {
@@ -261,6 +371,8 @@
       font-size: 0.95rem;
     }
 
+    body.light-mode footer { color: #4a4a8f; }
+
     .build-badge {
       margin-top: 2rem;
       text-align: center;
@@ -273,10 +385,12 @@
   <nav>
     <a href="#home">Home</a>
     <a href="#about">About</a>
+    <a href="#projects">Projects</a>
     <a href="#skills">Skills</a>
     <a href="#hobbies">Hobbies</a>
     <a href="#contact">Contact</a>
   </nav>
+  <button id="theme-toggle" aria-label="Toggle dark/light mode">🌙</button>
 </header>
 
 <main>
@@ -300,10 +414,35 @@
     </div>
   </section>
 
+  <section id="projects">
+    <h2>My Projects</h2>
+    <div class="projects-grid">
+      <div class="project-card">
+        <img src="https://via.placeholder.com/400x200/1e0033/ffd700?text=Project+1" alt="Secure Login System screenshot">
+        <h3>Secure Login System</h3>
+        <p>A password manager prototype with encryption basics using JavaScript and local storage.</p>
+        <div class="project-links">
+          <a href="#" target="_blank">GitHub</a>
+          <a href="#" target="_blank">Live Demo</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="https://via.placeholder.com/400x200/1e0033/ffd700?text=Project+2" alt="Phishing Awareness Tool screenshot">
+        <h3>Phishing Awareness Tool</h3>
+        <p>Interactive quiz to educate users about common phishing techniques.</p>
+        <div class="project-links">
+          <a href="#" target="_blank">GitHub</a>
+          <a href="#" target="_blank">Live Demo</a>
+        </div>
+      </div>
+      <!-- Add more project cards here as needed -->
+    </div>
+  </section>
+
   <section id="skills">
     <h2>Skills</h2>
     <div class="skills-tags">
-      <span class="skill-tag">HTML</span>
+      <span class="skill-tag">HTML5</span>
       <span class="skill-tag">CSS3</span>
       <span class="skill-tag">JavaScript</span>
       <span class="skill-tag">Python</span>
@@ -338,7 +477,7 @@
         <p>Expressing emotions through music and melody — my happy place.</p>
       </div>
       <div class="interest-card">
-        <img src="https://raw.githubusercontent.com/Shirley-1107/Shirley-portfolio/main/outdoor(me).jpg" alt="Shirley Maria Ann playing or engaged in outdoor sports">
+        <img src="https://raw.githubusercontent.com/Shirley-1107/Shirley-portfolio/main/outdoor(me).jpg" alt="Shirley Maria Ann engaged in outdoor sports activity">
         <h3>Sports</h3>
         <p>Staying active and energetic with various outdoor sports like volleyball and throwball.</p>
       </div>
@@ -354,10 +493,7 @@
         <textarea name="message" placeholder="Your Message / Query" rows="6" required></textarea>
         <button type="submit">Send Message</button>
       </form>
-      <p class="mt-2">Text</p>
-
-/* Add to <style> */
-.mt-2 { margin-top: 2rem; }
+      <p style="margin-top:2rem;">
         <strong>Alternative Contact:</strong><br>
         Email: 25bcyc53@kristujayanti.com<br>
         Phone: 8618477831
@@ -402,6 +538,24 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
     status.textContent = 'Network error. Check your connection.';
     status.style.color = '#ff5555';
   });
+});
+
+// Dark/Light mode toggle
+const toggle = document.getElementById('theme-toggle');
+const body = document.body;
+
+// Load saved preference or system preference
+if (localStorage.getItem('theme') === 'light' ||
+    (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+  body.classList.add('light-mode');
+  toggle.textContent = '☀️';
+}
+
+toggle.addEventListener('click', () => {
+  body.classList.toggle('light-mode');
+  const isLight = body.classList.contains('light-mode');
+  toggle.textContent = isLight ? '☀️' : '🌙';
+  localStorage.setItem('theme', isLight ? 'light' : 'dark');
 });
 </script>
 </body>
