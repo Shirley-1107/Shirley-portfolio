@@ -1,6 +1,5 @@
 # .github/workflows/main.yml
-[<image-card alt="Pages Build Status" src="https://github.com/Shirley-1107/Shirley-portfolio/workflows/pages%20build%20and%20deployment/badge.svg" ></image-card>](https://github.com/Shirley-1107/Shirley-portfolio/actions)
-[<image-card alt="CI/CD Status" src="https://github.com/Shirley-1107/Shirley-portfolio/actions/workflows/main.yml/badge.svg" ></image-card>](https://github.com/Shirley-1107/Shirley-portfolio/actions)
+
 name: CI/CD + Testing for Portfolio Website
 
 on:
