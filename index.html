@@ -532,7 +532,7 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
   .then(response => response.json())
   .then(data => {
     if (data.result === 'success') {
-      status.textContent = 'Thank you! Message sent successfully.';
+      status.textContent = 'Thank you! Message sent successfully.🩶';
       status.style.color = '#00ff88';
       form.reset();
     } else {
