@@ -7,7 +7,7 @@ Single-page cybersecurity portfolio website with neon cyber theme.
 ## Build & Deployment Status
 
 [![GitHub Pages Build & Deployment](https://github.com/Shirley-1107/Shirley-portfolio/workflows/pages%20build%20and%20deployment/badge.svg)](https://github.com/Shirley-1107/Shirley-portfolio/actions/workflows/pages%20build%20and%20deployment.yml)  
-[![CI/CD Pipeline](https://github.com/Shirley-1107/Shirley-portfolio/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/Shirley-1107/Shirley-portfolio/actions/workflows/ci-cd.yml)
+[![CI/CD Pipeline](https://github.com/Shirley-1107/Shirley-portfolio/actions/workflows/main.yml/badge.svg)](https://github.com/Shirley-1107/Shirley-portfolio/actions/workflows/main.yml)
 
 ## Tech Stack
 - HTML5 + CSS3 (Flexbox, Grid, Glassmorphism, Media Queries)
