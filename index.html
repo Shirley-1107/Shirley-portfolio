@@ -10,8 +10,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
 
-  <!-- Google Analytics (replace G-XXXXXXXXXX with your real Measurement ID) -->
-  <!-- Get your ID from https://analytics.google.com -->
+  <!-- Google Analytics – REPLACE G-0QHPBLNK08 with your real Measurement ID -->
+  <!-- Go to analytics.google.com → Admin → Data streams → your web stream → copy Measurement ID -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-0QHPBLNK08"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -38,7 +38,12 @@
       --bg-end: #e0e0ff;
     }
 
-    * { margin:0; padding:0; box-sizing:border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
       font-family: 'Inter', system-ui, sans-serif;
       background: linear-gradient(to bottom right, var(--bg-start), var(--bg-end));
@@ -435,14 +440,14 @@
           <a href="#" target="_blank">Live Demo</a>
         </div>
       </div>
-      <!-- Add more project cards here as needed -->
+      <!-- Add more project cards here -->
     </div>
   </section>
 
   <section id="skills">
     <h2>Skills</h2>
     <div class="skills-tags">
-      <span class="skill-tag">HTML5</span>
+      <span class="skill-tag">HTML</span>
       <span class="skill-tag">CSS3</span>
       <span class="skill-tag">JavaScript</span>
       <span class="skill-tag">Python</span>
@@ -507,11 +512,12 @@
   © 2026 S. Shirley Maria Ann | Made with passion & purpose
   <div class="build-badge" style="margin-top: 1.5rem;">
     <p>Build Status:</p>
-    <img src="https://github.com/Shirley-1107/Shirley-portfolio/actions/workflows/ci-cd.yml/badge.svg" alt="CI/CD Build Status">
+    <img src="https://github.com/Shirley-1107/Shirley-portfolio/actions/workflows/main.yml/badge.svg" alt="CI/CD Build Status">
   </div>
 </footer>
 
 <script>
+// Contact form submission
 document.getElementById('contactForm').addEventListener('submit', function(e) {
   e.preventDefault();
   const form = e.target;
