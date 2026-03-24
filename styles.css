@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 :root {
   --gold: #ffd700;
   --text: #e0e0ff;
@@ -114,3 +115,89 @@ main { padding-top: 80px; }
 </html>
 
 /* For brevity, I'm not repeating the full 500+ lines of CSS here – copy everything from your old <style> into this file */
+=======
+/* ====================== CONTACT FORM STYLING ====================== */
+#contact {
+    margin-top: 40px;
+}
+
+#contact .form-group {
+    margin-bottom: 20px;
+}
+
+#contact label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--text-color, #333);   /* Works with dark/light mode */
+}
+
+#contact input,
+#contact textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    background-color: var(--bg-color, #fff);
+    color: var(--text-color, #333);
+}
+
+#contact input:focus,
+#contact textarea:focus {
+    outline: none;
+    border-color: #6e07f3;
+    box-shadow: 0 0 0 3px rgba(110, 7, 243, 0.1);
+}
+
+#contact textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+#contact button {
+    background-color: #6e07f3;
+    color: white;
+    padding: 14px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+#contact button:hover {
+    background-color: #5a06d1;
+    transform: translateY(-2px);
+}
+
+#contact button:disabled {
+    background-color: #999;
+    cursor: not-allowed;
+    transform: none;
+}
+
+#status {
+    margin-top: 15px;
+    font-weight: 600;
+    text-align: center;
+    min-height: 24px;
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    #contact input,
+    #contact textarea {
+        background-color: #2a2a2a;
+        border-color: #555;
+        color: #eee;
+    }
+    
+    #contact label {
+        color: #ddd;
+    }
+}
+>>>>>>> a3f95c6a0c9e7cd59fbafd3fcc7c0211882cd39e
