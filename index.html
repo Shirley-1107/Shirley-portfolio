@@ -564,36 +564,48 @@ toggle.addEventListener('click', () => {
   localStorage.setItem('theme', isLight ? 'light' : 'dark');
 });
 </script>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+ <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script>
-    const SUPABASE_URL = "https://your-project.supabase.co";   // ← Change to your real URL
-    const SUPABASE_ANON_KEY = "eyJ...";                       // ← Change to your real key
+    const SUPABASE_URL = "https://imffkdgwbplgescirisp.supabase.co";   
+    const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImltZmZrZGd3YnBsZ2VzY2lyaXNwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQzNTE4ODUsImV4cCI6MjA4OTkyNzg4NX0.GRPqMCa8JSQ9GT7MeHY6ZeAsijjaF806eQLVBW9RAh0";                    
 
-    const supabase = Supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    const supabase = Supabase.createClient(https://imffkdgwbplgescirisp.supabase.co, eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImltZmZrZGd3YnBsZ2VzY2lyaXNwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQzNTE4ODUsImV4cCI6MjA4OTkyNzg4NX0.GRPqMCa8JSQ9GT7MeHY6ZeAsijjaF806eQLVBW9RAh0);
 
-    document.getElementById("contactForm").addEventListener("submit", async function(e) {
+    const form = document.getElementById("contactForm");
+    const status = document.getElementById("status");
+    const submitBtn = document.getElementById("submitBtn");
+
+    form.addEventListener("submit", async function(e) {
         e.preventDefault();
 
-        const name = document.getElementById("name").value;
-        const email = document.getElementById("email").value;
-        const message = document.getElementById("message").value;
-        const status = document.getElementById("status");
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const message = document.getElementById("message").value.trim();
 
-        status.textContent = "Sending...";
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Sending...";
+        status.textContent = "";
 
-        const { error } = await supabase
-            .from("messages")
-            .insert([{ name, email, message }]);
+        try {
+            const { error } = await supabase
+                .from("messages")
+                .insert([{ name, email, message }]);
 
-        if (error) {
-            status.style.color = "red";
-            status.textContent = "❌ Failed to send. Try again.";
-        } else {
-            status.style.color = "green";
+            if (error) throw error;
+
+            status.style.color = "#22c55e";
             status.textContent = "✅ Message sent successfully! Thank you.";
-            document.getElementById("contactForm").reset();
+            form.reset();
+
+        } catch (err) {
+            status.style.color = "#ef4444";
+            status.textContent = "❌ Failed to send message. Please try again.";
         }
+
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Send Message";
     });
 </script>
   </body>
