@@ -1,0 +1,55 @@
+# .github/workflows/main.yml
+
+name: CI/CD + Testing for Portfolio Website
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    -- name: Checkout
+        uses: actions/checkout@v3
+    name: Run Lighthouse Audit
+        uses: treosh/lighthouse-ci-action@v10
+        with:
+          urls: 'https://shirley-1107.github.io/Shirley-portfolio/'
+          uploadArtifacts: true 
+          temporaryPublicStorage: true
+    
+
+    - name: Setup Node.js (for some tools)
+      uses: actions/setup-node@v3
+      with:
+        node-version: '20'
+
+    - name: Install dependencies (for html-validate, stylelint, etc.)
+      run: npm install -g html-validate stylelint stylelint-config-standard
+
+    - name: Validate HTML
+      run: html-validate index.html
+
+    - name: Lint CSS
+      run: stylelint "**/*.css"
+
+    - name: Run Lighthouse CI (performance &amp accessibility check)
+      uses: treosh/lighthouse-ci-action@v10
+      with:
+        urls: 'https://shirley-1107.github.io/Shirley-portfolio/'
+        temporaryPublicStorage: true
+        configPath: './lighthouserc.json'
+
+    - name: Check for broken links
+      uses: gaurav-nelson/github-action-markdown-link-check@v1
+      with:
+        use-quiet-mode: 'yes'
+        check-modified-files-only: 'yes'
+
+    - name: Deploy to GitHub Pages (only on push to main)
+      if: github.event_name == 'push' &amp github.ref == 'refs/heads/main'
+      uses: peaceiris/actions-gh-pages@v3
