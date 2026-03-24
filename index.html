@@ -564,5 +564,46 @@ toggle.addEventListener('click', () => {
   localStorage.setItem('theme', isLight ? 'light' : 'dark');
 });
 </script>
-</body>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+    // === YOUR SUPABASE DETAILS (Replace with your own) ===
+    const SUPABASE_URL = "https://imffkdgwbplgescirisp.supabase.co";  
+    const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImltZmZrZGd3YnBsZ2VzY2lyaXNwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQzNTE4ODUsImV4cCI6MjA4OTkyNzg4NX0.GRPqMCa8JSQ9GT7MeHY6ZeAsijjaF806eQLVBW9RAh0
+";                           
+
+    const supabase = Supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    // Handle form submission
+    document.getElementById("contactForm").addEventListener("submit", async function(e) {
+        e.preventDefault();   // Stop page from refreshing
+
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const message = document.getElementById("message").value;
+        const status = document.getElementById("status");
+
+        status.textContent = "Sending message...";
+
+        try {
+            const { error } = await supabase
+                .from("messages")
+                .insert([{ name, email, message }]);
+
+            if (error) throw error;
+
+            status.style.color = "green";
+            status.textContent = "✅ Message sent successfully! Thank you.";
+            
+            // Clear the form
+            document.getElementById("contactForm").reset();
+
+        } catch (error) {
+            console.error(error);
+            status.style.color = "red";
+            status.textContent = "❌ Failed to send message. Please try again.";
+        }
+    });
+</script>
+  </body>
 </html>
