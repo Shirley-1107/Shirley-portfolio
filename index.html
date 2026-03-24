@@ -234,8 +234,7 @@
       text-align: center;
     }
 
-    body.light-mode .project-card,
-    body.light-mode .interest-card {
+    body.light-mode .project-card, body.light-mode .interest-card {
       background: rgba(240,240,255,0.7);
       border: 1px solid rgba(0,0,0,0.15);
     }
@@ -257,8 +256,7 @@
       font-size: 1.4rem;
     }
 
-    body.light-mode .project-card h3,
-    body.light-mode .interest-card h3 {
+    body.light-mode .project-card h3, body.light-mode .interest-card h3 {
       color: #b8860b;
     }
 
@@ -301,8 +299,7 @@
       font-size: 1.05rem;
     }
 
-    body.light-mode #contact input,
-    body.light-mode #contact textarea {
+    body.light-mode #contact input, body.light-mode #contact textarea {
       background: rgba(255,255,255,0.8);
       color: #1a1a3d;
       border: 1px solid rgba(0,0,0,0.2);
@@ -479,13 +476,13 @@
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-  // Supabase Contact Form
+  // Supabase setup
   const SUPABASE_URL = "https://imffkdgwbplgescirisp.supabase.co";
   const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImltZmZrZGd3YnBsZ2VzY2lyaXNwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQzNTE4ODUsImV4cCI6MjA4OTkyNzg4NX0.GRPqMCa8JSQ9GT7MeHY6ZeAsijjaF806eQLVBW9RAh0";
 
-  const { createClient } = Supabase;
-  const supabaseClient = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+  const supabaseClient = Supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
+  // Contact Form
   document.getElementById("contactForm").addEventListener("submit", async function(e) {
     e.preventDefault();
     const name = document.getElementById("name").value.trim();
@@ -516,7 +513,7 @@
     }
   });
 
-  // ==================== DARK / LIGHT MODE (Now Fixed) ====================
+  // Dark / Light Mode Toggle (Fixed)
   const themeToggle = document.getElementById("theme-toggle");
   const body = document.body;
 
@@ -537,12 +534,10 @@
     localStorage.setItem("theme", isLight ? "light" : "dark");
   }
 
-  // Attach toggle button
   if (themeToggle) {
     themeToggle.addEventListener("click", toggleTheme);
   }
 
-  // Apply saved theme when page loads
   window.addEventListener("load", applySavedTheme);
 </script>
 </body>
