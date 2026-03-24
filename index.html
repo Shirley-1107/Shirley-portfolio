@@ -490,121 +490,103 @@
     </div>
   </section>
 
-  <section id="contact">
+ <!-- ==================== CONTACT SECTION (Clean & Beautiful) ==================== -->
+<section id="contact">
     <h2>Contact Me</h2>
-    <div id="contact-card">
-<form action="https://formspree.io/f/xreywrgb" method="POST">
-  <input type="text" name="name" placeholder="Your Full Name" required>
-        <input type="email" name="email" placeholder="Your Email Address" required>
-        <textarea name="message" placeholder="Your Message / Query" rows="6" required></textarea>
-        <button type="submit">Send Message</button>
-      </form>
-      <p style="margin-top:2rem;">
-        <strong>Alternative Contact:</strong><br>
-        Email: 25bcyc53@kristujayanti.com<br>
-        Phone: 8XXXXXXXX1
-      </p>
-      <p id="formStatus" style="margin-top:1.5rem; font-weight:500;"></p>
-    </div>
-  </section>
-</main>
+ 
 
-<footer>
-  © 2026 S. Shirley Maria Ann | Made with passion & purpose
-  <div class="build-badge" style="margin-top: 1.5rem;">
-    <p>Build Status:</p>
-    <img src="https://github.com/Shirley-1107/Shirley-portfolio/actions/workflows/ci-cd.yml/badge.svg" alt="CI/CD Build Status">
-  </div>
-</footer>
+    <form id="contactForm">
+        <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" placeholder="Enter your full name" required>
+        </div>
 
-<script>
-// Contact form submission
-document.getElementById('contactForm').addEventListener('submit', function(e) {
-  e.preventDefault();
-  const form = e.target;
-  const status = document.getElementById('formStatus');
-  status.textContent = 'Sending...';
-  status.style.color = '#ffaa00';
+        <div class="form-group">
+            <label for="email">Your Email</label>
+            <input type="email" id="email" placeholder="Enter your email address" required>
+        </div>
 
-  fetch(form.action, {
-    method: 'POST',
-    body: new FormData(form)
-  })
-  .then(response => response.json())
-  .then(data => {
-    if (data.result === 'success') {
-      status.textContent = 'Thank you! Message sent successfully.🩶';
-      status.style.color = '#00ff88';
-      form.reset();
-    } else {
-      status.textContent = 'Error: ' + (data.error || 'Please try again.');
-      status.style.color = '#ff5555';
-    }
-  })
-  .catch(() => {
-    status.textContent = 'Network error. Check your connection.';
-    status.style.color = '#ff5555';
-  });
-});
+        <div class="form-group">
+            <label for="message">Your Message</label>
+            <textarea id="message" rows="6" placeholder="Write your message here..." required></textarea>
+        </div>
 
-// Dark/Light mode toggle
-const toggle = document.getElementById('theme-toggle');
-const body = document.body;
+        <button type="submit" class="submit-btn">Send Message</button>
+    </form>
 
-// Load saved preference or system preference
-if (localStorage.getItem('theme') === 'light' ||
-    (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: light)').matches)) {
-  body.classList.add('light-mode');
-  toggle.textContent = '☀️';
-}
+    <p id="status" class="status-message"></p>
+</section>
 
-toggle.addEventListener('click', () => {
-  body.classList.toggle('light-mode');
-  const isLight = body.classList.contains('light-mode');
-  toggle.textContent = isLight ? '☀️' : '🌙';
-  localStorage.setItem('theme', isLight ? 'light' : 'dark');
-});
-</script>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<!-- ==================== SUPABASE + DARK MODE SCRIPT ==================== -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script>
-    // === YOUR SUPABASE DETAILS (Replace with your own) ===
-    const SUPABASE_URL = "https://imffkdgwbplgescirisp.supabase.co";  
-    const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImltZmZrZGd3YnBsZ2VzY2lyaXNwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQzNTE4ODUsImV4cCI6MjA4OTkyNzg4NX0.GRPqMCa8JSQ9GT7MeHY6ZeAsijjaF806eQLVBW9RAh0
-";                           
+    // ============== YOUR SUPABASE CREDENTIALS ==============
+    const SUPABASE_URL = "https://imffkdgwbplgescirisp.supabase.co";   // ← PASTE YOUR REAL PROJECT URL
+    const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImltZmZrZGd3YnBsZ2VzY2lyaXNwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQzNTE4ODUsImV4cCI6MjA4OTkyNzg4NX0.GRPqMCa8JSQ9GT7MeHY6ZeAsijjaF806eQLVBW9RAh0";                           // ← PASTE YOUR REAL ANON KEY
 
-    const supabase = Supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    const { createClient } = supabase;
+    const supabaseClient = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-    // Handle form submission
+    // ============== CONTACT FORM (Supabase) ==============
     document.getElementById("contactForm").addEventListener("submit", async function(e) {
-        e.preventDefault();   // Stop page from refreshing
+        e.preventDefault();
 
-        const name = document.getElementById("name").value;
-        const email = document.getElementById("email").value;
-        const message = document.getElementById("message").value;
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const message = document.getElementById("message").value.trim();
         const status = document.getElementById("status");
 
+        if (!name || !email || !message) {
+            status.style.color = "red";
+            status.textContent = "Please fill all fields";
+            return;
+        }
+
         status.textContent = "Sending message...";
+        status.style.color = "#666";
 
         try {
-            const { error } = await supabase
+            const { error } = await supabaseClient
                 .from("messages")
                 .insert([{ name, email, message }]);
 
             if (error) throw error;
 
             status.style.color = "green";
-            status.textContent = "✅ Message sent successfully! Thank you.";
-            
-            // Clear the form
+            status.textContent = "Thank you.Message sent successfully!🩶";
             document.getElementById("contactForm").reset();
 
-        } catch (error) {
-            console.error(error);
+        } catch (err) {
+            console.error(err);
             status.style.color = "red";
-            status.textContent = "❌ Failed to send message. Please try again.";
+            status.textContent = "❌ Failed to send. Please try again later.";
         }
     });
+
+    // ============== DARK / BRIGHT MODE (Fixed) ==============
+    function toggleDarkMode() {
+        document.documentElement.classList.toggle("dark");
+        localStorage.setItem("theme", document.documentElement.classList.contains("dark") ? "dark" : "light");
+    }
+
+    // Apply saved theme on page load
+    function applySavedTheme() {
+        const savedTheme = localStorage.getItem("theme");
+        if (savedTheme === "dark") {
+            document.documentElement.classList.add("dark");
+        }
+    }
+
+    // Add click listener to your existing theme toggle button
+    // Change the ID if your button has a different id
+    const themeToggle = document.getElementById("theme-toggle");   // ← Change this ID if needed
+    if (themeToggle) {
+        themeToggle.addEventListener("click", toggleDarkMode);
+    }
+
+    // Run on page load
+    window.addEventListener("load", applySavedTheme);
 </script>
   </body>
 </html>
@@ -1099,137 +1081,6 @@ toggle.addEventListener('click', () => {
       </div>
     </div>
   </section>
-
-<!-- ==================== CONTACT SECTION ==================== -->
-<section id="contact">
-    <h2>Contact Me</h2>
-    <p>Feel free to reach out! I'll get back to you soon.</p>
-
-    <form id="contactForm">
-        <label for="name">Your Name:</label><br>
-        <input type="text" id="name" placeholder="Enter your name" required><br><br>
-
-        <label for="email">Your Email:</label><br>
-        <input type="email" id="email" placeholder="Enter your email" required><br><br>
-
-        <label for="message">Message:</label><br>
-        <textarea id="message" rows="5" placeholder="Write your message here..." required></textarea><br><br>
-
-        <button type="submit">Send Message</button>
-    </form>
-
-    <p id="status"></p>
-</section>
-
-<!-- ==================== SUPABASE SCRIPT ==================== -->
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-<script>
-    // === YOUR SUPABASE DETAILS ===
-    const SUPABASE_URL = "https://imffkdgwbplgescirisp.supabase.co";     // ← Change to your real URL
-    const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImltZmZrZGd3YnBsZ2VzY2lyaXNwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQzNTE4ODUsImV4cCI6MjA4OTkyNzg4NX0.GRPqMCa8JSQ9GT7MeHY6ZeAsijjaF806eQLVBW9RAh0";                             // ← Change to your real Anon Key
-
-    const { createClient } = supabase;
-    const supabaseClient = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-
-    // Contact Form Submission
-    document.getElementById("contactForm").addEventListener("submit", async function(e) {
-        e.preventDefault();
-
-        const name = document.getElementById("name").value.trim();
-        const email = document.getElementById("email").value.trim();
-        const message = document.getElementById("message").value.trim();
-        const status = document.getElementById("status");
-
-        if (!name || !email || !message) {
-            status.style.color = "red";
-            status.textContent = "Please fill all fields";
-            return;
-        }
-
-        status.style.color = "#000";
-        status.textContent = "Sending message...";
-
-        try {
-            const { error } = await supabaseClient
-                .from("messages")
-                .insert([{ name, email, message }]);
-
-            if (error) throw error;
-
-            status.style.color = "green";
-            status.textContent = "Thank you! Message sent successfully.🩶";
-            document.getElementById("contactForm").reset();
-
-        } catch (err) {
-            console.error(err);
-            status.style.color = "red";
-            status.textContent = "❌ Failed to send message. Please try again.";
-        }
-    });
-
-   // Dark/Light mode toggle
-const toggle = document.getElementById('theme-toggle');
-const body = document.body;
-
-// Load saved preference or system preference
-if (localStorage.getItem('theme') === 'light' ||
-    (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: light)').matches)) {
-  body.classList.add('light-mode');
-  toggle.textContent = '☀️';
-}
-
-toggle.addEventListener('click', () => {
-  body.classList.toggle('light-mode');
-  const isLight = body.classList.contains('light-mode');
-  toggle.textContent = isLight ? '☀️' : '🌙';
-  localStorage.setItem('theme', isLight ? 'light' : 'dark');
-});
-    }
-</script>
- <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-<script>
-    const SUPABASE_URL = "https://imffkdgwbplgescirisp.supabase.co";   
-    const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImltZmZrZGd3YnBsZ2VzY2lyaXNwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQzNTE4ODUsImV4cCI6MjA4OTkyNzg4NX0.GRPqMCa8JSQ9GT7MeHY6ZeAsijjaF806eQLVBW9RAh0";                    
-
-    const supabase = Supabase.createClient(https://imffkdgwbplgescirisp.supabase.co, eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImltZmZrZGd3YnBsZ2VzY2lyaXNwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQzNTE4ODUsImV4cCI6MjA4OTkyNzg4NX0.GRPqMCa8JSQ9GT7MeHY6ZeAsijjaF806eQLVBW9RAh0);
-
-    const form = document.getElementById("contactForm");
-    const status = document.getElementById("status");
-    const submitBtn = document.getElementById("submitBtn");
-
-    form.addEventListener("submit", async function(e) {
-        e.preventDefault();
-
-        const name = document.getElementById("name").value.trim();
-        const email = document.getElementById("email").value.trim();
-        const message = document.getElementById("message").value.trim();
-
-        submitBtn.disabled = true;
-        submitBtn.textContent = "Sending...";
-        status.textContent = "";
-
-        try {
-            const { error } = await supabase
-                .from("messages")
-                .insert([{ name, email, message }]);
-
-            if (error) throw error;
-
-            status.style.color = "#22c55e";
-            status.textContent = "✅ Message sent successfully! Thank you.";
-            form.reset();
-
-        } catch (err) {
-            status.style.color = "#ef4444";
-            status.textContent = "❌ Failed to send message. Please try again.";
-        }
-
-        submitBtn.disabled = false;
-        submitBtn.textContent = "Send Message";
-    });
-</script>
   </body>
 </html>
 >>>>>>> a3f95c6a0c9e7cd59fbafd3fcc7c0211882cd39e
