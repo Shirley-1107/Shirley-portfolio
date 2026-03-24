@@ -59,7 +59,7 @@
     }
 
     body.light-mode header {
-      background: rgba(255,255,255,0.9);
+      background: rgba(255, 255, 255, 0.9);
       border-bottom: 1px solid rgba(0,0,0,0.12);
     }
 
@@ -145,10 +145,6 @@
 
     body.light-mode .hero-left h1 { color: #b8860b; }
 
-    @media (max-width: 960px) { .hero-left h1 { font-size: 2.8rem; } }
-    @media (max-width: 520px) { .hero-left h1 { font-size: 2.4rem; } }
-    @media (max-width: 400px) { .hero-left h1 { font-size: 2.1rem; } }
-
     .hero-left p {
       font-size: 1.3rem;
       color: #d8d8ff;
@@ -166,10 +162,6 @@
       object-fit: cover;
       box-shadow: 0 0 55px rgba(255,215,0,0.45);
     }
-
-    @media (max-width: 960px) { .hero-right img { width: 210px; height: 210px; } }
-    @media (max-width: 520px) { .hero-right img { width: 180px; height: 180px; } }
-    @media (max-width: 400px) { .hero-right img { width: 160px; height: 160px; } }
 
     section {
       padding: 5rem 1.5rem;
@@ -487,14 +479,13 @@
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-  // ============== SUPABASE ==============
+  // Supabase Contact Form
   const SUPABASE_URL = "https://imffkdgwbplgescirisp.supabase.co";
   const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImltZmZrZGd3YnBsZ2VzY2lyaXNwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQzNTE4ODUsImV4cCI6MjA4OTkyNzg4NX0.GRPqMCa8JSQ9GT7MeHY6ZeAsijjaF806eQLVBW9RAh0";
 
   const { createClient } = Supabase;
   const supabaseClient = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-  // ============== CONTACT FORM ==============
   document.getElementById("contactForm").addEventListener("submit", async function(e) {
     e.preventDefault();
     const name = document.getElementById("name").value.trim();
@@ -525,33 +516,33 @@
     }
   });
 
-  // ============== DARK / LIGHT MODE (Fixed & Reliable) ==============
-  const toggle = document.getElementById("theme-toggle");
+  // ==================== DARK / LIGHT MODE (Now Fixed) ====================
+  const themeToggle = document.getElementById("theme-toggle");
   const body = document.body;
 
   function applySavedTheme() {
     const savedTheme = localStorage.getItem("theme");
     if (savedTheme === "light") {
       body.classList.add("light-mode");
-      toggle.textContent = "☀️";
+      themeToggle.textContent = "☀️";
     } else {
-      toggle.textContent = "🌙";
+      themeToggle.textContent = "🌙";
     }
   }
 
   function toggleTheme() {
     body.classList.toggle("light-mode");
     const isLight = body.classList.contains("light-mode");
-    toggle.textContent = isLight ? "☀️" : "🌙";
+    themeToggle.textContent = isLight ? "☀️" : "🌙";
     localStorage.setItem("theme", isLight ? "light" : "dark");
   }
 
-  // Attach toggle
-  if (toggle) {
-    toggle.addEventListener("click", toggleTheme);
+  // Attach toggle button
+  if (themeToggle) {
+    themeToggle.addEventListener("click", toggleTheme);
   }
 
-  // Apply theme when page loads
+  // Apply saved theme when page loads
   window.addEventListener("load", applySavedTheme);
 </script>
 </body>
